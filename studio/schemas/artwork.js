@@ -1,63 +1,81 @@
-import {defineField, defineType} from 'sanity'
+import {image} from './utils'
 
-const imageAlt = defineField({
-  name: 'imageAlt',
-  title: 'Image',
-  type: 'image',
-  fields: [
-    {
-      type: 'text',
-      name: 'alt',
-      title: 'Alternative text',
-    },
-  ],
-})
+const Row = {
+  name: 'row',
+  title: 'Row',
+  type: 'array',
+  of: [image],
+}
 
-export default defineType({
+const Column = {
+  name: 'column',
+  title: 'Column',
+  type: 'array',
+  of: [Row],
+}
+
+export default {
   name: 'artwork',
   title: 'Artwork',
   type: 'document',
   fields: [
-    defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-    }),
-    defineField({
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-    }),
-    imageAlt,
-    defineField({
+    },
+    image(),
+    {
       name: 'slides',
       title: 'Slides',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'images',
-          title: 'Images',
-          type: 'array',
-          of: [imageAlt],
-        }),
-        defineField({
-          name: 'about',
-          title: 'About',
-          type: 'array',
-          of: [
+      type: 'array',
+      of: [
+        image(),
+        {
+          name: 'video',
+          title: 'Video',
+          type: 'file',
+        },
+        {
+          name: 'info',
+          title: 'Info',
+          type: 'object',
+          fields: [
             {
-              type: 'block',
+              name: 'richtext',
+              title: 'Richtext',
+              type: 'array',
+              of: [
+                {
+                  type: 'block',
+                },
+                {
+                  name: 'row',
+                  title: 'Row',
+                  type: 'object',
+                  fields: [
+                    {
+                      name: 'columns',
+                      title: 'Columns',
+                      type: 'array',
+                      of: [image({caption: true})],
+                    },
+                  ],
+                },
+              ],
             },
-            imageAlt,
           ],
-        }),
+        },
       ],
-    }),
+    },
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'slug.current',
       media: 'image',
     },
+    // prepare: (slug) => {
+    //   title: slug.current
+    // },
   },
-})
+}

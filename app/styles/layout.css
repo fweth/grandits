@@ -1,0 +1,32 @@
+body {
+  display: grid;
+  grid-template-rows: 60px 1fr 60px;
+  min-height: 100vh;
+}
+header {
+  display: flex;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 48px;
+  margin-left: 125px;
+  font-family: 'SourceSerifPro';
+}
+header a {
+  display: block;
+  display: flex;
+  align-items: center;
+  color: blue;
+  font-size: 49px;
+}
+header a.active {
+  color: black;
+}
+main {
+  background: green;
+}
+footer {
+  background: blue;
+}

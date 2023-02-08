@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "SuisseIntl";
+  src: url("/fonts/SuisseIntl.woff") format("woff"),
+    url("/fonts/SuisseIntl.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SourceSerifPro";
+  src: url("/fonts/SourceSerifPro.woff") format("woff"),
+    url("/fonts/SourceSerifPro.woff2") format("woff2");
+}
+* {
+  all: unset;
+  display: revert;
+  box-sizing: border-box;
+}
+ol,
+ul,
+menu {
+  list-style: none;
+}
+body {
+  font-family: "Suisse";
+}
+a {
+  text-decoration: underline;
+  cursor: pointer;
+}
