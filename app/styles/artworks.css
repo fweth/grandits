@@ -1,0 +1,21 @@
+.artworks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px 160px;
+}
+.portrait {
+  grid-column: span 1;
+  width: 540px;
+}
+.landscape {
+  grid-column: span 2;
+  width: 970px;
+  margin: auto;
+}
+.artworks figcaption {
+  margin-top: 24px;
+  font-family: SuisseIntl;
+  font-size: 18px;
+  line-height: 24px;
+  white-space: pre;
+}

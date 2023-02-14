@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import styles from "./styles/root.css"
+import styles from "./styles/root.css";
 
 export const meta = () => ({
   charset: "utf-8",
@@ -15,10 +15,17 @@ export const meta = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
-export const links = () => ({
-  rel: "stylesheet",
-  href: styles
-})
+export const links = () => [
+  {
+    rel: "stylesheet",
+    href: styles,
+  },
+  {
+    rel: "icon",
+    type: "image/svg+xml",
+    href: "/favicon.svg",
+  },
+];
 
 export default function App() {
   return (
