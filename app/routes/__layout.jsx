@@ -22,7 +22,7 @@ export default function Layout() {
         </nav>
       </header>
       <Outlet />
-      <footer>Hello, I'm footer</footer>
+      <footer/>
     </>
   );
 }

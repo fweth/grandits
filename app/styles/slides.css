@@ -1,0 +1,67 @@
+main.slide {
+  width: 716px;
+  margin: 108px auto 200px;
+}
+.caption {
+  position: fixed;
+  bottom: 24px;
+  left: 48px;
+  white-space: pre;
+}
+.slideNav {
+  position: fixed;
+  top: auto;
+  right: 0;
+  bottom: 48px;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  width: 240px;
+  margin: auto;
+  font-size: 45px;
+  line-height: 50px;
+  text-align: center;
+}
+.slideNav a {
+  display: flex;
+  align-items: center;
+}
+.slideNav .prev {
+  grid-column: 1;
+}
+.slideNav .indicator {
+  grid-column: 2;
+}
+.slideNav .next {
+  grid-column: 3
+}
+.slideNav svg {
+  height: 40px;
+  color: blue;
+}
+.close {
+  position: fixed;
+  top: 48px;
+  right: 48px;
+}
+.close svg {
+  width: 35px;
+  height: 35px;
+  color: blue;
+}
+.visual-block {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+.visual-block figure {
+  width: min-content;
+  margin-top: 54px;
+  margin-bottom: 54px;
+}
+.visual-block figcaption {
+  margin-top: 12px;
+}
+.visual-block img {
+  width: auto;
+}

@@ -1,0 +1,78 @@
+import { redirect } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import { request, gql } from "graphql-request";
+import Image from "../../components/image";
+import MixedContent from "../../components/mixedContent";
+
+export async function loader({ params: { slug, index } }) {
+  const query = gql`
+    query {
+      artwork(where: { slug: "${slug}" }) {
+        slides(first: 1, skip: ${index - 1}) {
+          ... on MixedContent {
+            __typename
+            blocks {
+              ... on TextBlock {
+                __typename
+                id
+                richtext {
+                  html
+                }
+              }
+              ... on VisualBlock {
+                __typename
+                columns {
+                  alt
+                  file {
+                    url
+                  }
+                  id
+                }
+                id
+              }
+            }
+          }
+          ... on Visual {
+            __typename
+            alt
+            file {
+              height
+              mimeType
+              url
+              width
+            }
+          }
+        }
+      }
+    }
+  `;
+  const slide = (await request(process.env.CONTENT_API, query)).artwork
+    .slides[0];
+  return { slide };
+}
+
+// export const meta = ({ data }) => data.artworksMeta;
+
+export default function Slide() {
+  const { slide } = useLoaderData();
+  return (
+    <main className="slide">
+      {(function () {
+        switch (slide.__typename) {
+          case "Visual":
+            switch (slide.file.mimeType.split("/")[0]) {
+              case "image":
+                const ls = slide.file.width > slide.file.height;
+                return (
+                  <Image data={slide} width={ls ? 1120 : 716} height={896} />
+                );
+              case "video":
+                return <video />;
+            }
+          case "MixedContent":
+            return <MixedContent data={slide.blocks} />;
+        }
+      })()}
+    </main>
+  );
+}

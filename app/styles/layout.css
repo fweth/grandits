@@ -4,8 +4,11 @@ body {
   min-height: 100vh;
 }
 header {
+  position: sticky;
+  top: 0;
   display: flex;
   height: 60px;
+  background: white;
 }
 header img {
   height: 100%;
@@ -20,17 +23,12 @@ header nav {
   font-family: 'SourceSerifPro';
 }
 header a {
-  display: block;
-  display: flex;
-  align-items: center;
   color: blue;
   font-size: 49px;
+  line-height: 60px;
 }
 header a.active {
   color: black;
-}
-main {
-  margin: 160px auto 60px;
 }
 footer {
   background: blue;
