@@ -25,3 +25,20 @@ export function image({alt = true, caption = false} = {}) {
     ].flat(),
   }
 }
+export const meta = {
+  name: 'meta',
+  title: 'Meta',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+    },
+  ],
+}

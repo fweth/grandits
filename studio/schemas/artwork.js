@@ -1,30 +1,31 @@
-import {image} from './utils'
-
-const Row = {
-  name: 'row',
-  title: 'Row',
-  type: 'array',
-  of: [image],
-}
-
-const Column = {
-  name: 'column',
-  title: 'Column',
-  type: 'array',
-  of: [Row],
-}
+import {image, meta} from './utils'
 
 export default {
   name: 'artwork',
   title: 'Artwork',
   type: 'document',
   fields: [
+    meta,
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      options: {
+        source: 'meta.title'
+      }
     },
     image(),
+    {
+      name: 'caption',
+      title: 'Caption',
+      type: 'text',
+    },
+    {
+      name: 'double',
+      title: 'Double',
+      type: 'boolean',
+      initialValue: false
+    },
     {
       name: 'slides',
       title: 'Slides',
@@ -72,10 +73,7 @@ export default {
   preview: {
     select: {
       title: 'slug.current',
-      media: 'image',
-    },
-    // prepare: (slug) => {
-    //   title: slug.current
-    // },
-  },
+      media: 'image'
+    }
+  }
 }
