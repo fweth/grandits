@@ -10,7 +10,7 @@ export const links = () => [
   },
 ];
 
-export const meta = ({ data: { page } }) => page.meta;
+export const meta = ({ data: { page } }) => page?.meta;
 
 export async function loader() {
   const query = gql`
@@ -36,13 +36,22 @@ export async function loader() {
   return request(process.env.CONTENT_API, query);
 }
 
+export function ErrorBoundary({ error }) {
+  console.error(error);
+  return (
+    <p>
+      Sorry, something went wrong!
+    </p>
+  );
+}
+
 export default function Artworks() {
-  console.log(page)
+  const { page } = useLoaderData();
   return (
     <main className="artworks">
       {page.collection.map((aw) => (
         <Link
-          className={aw.singleCol ? "portrait" : "landscape"}
+          className={aw.singleCol ? "single" : "double"}
           to={`${aw.slug}/1`}
           key={aw.slug}
         >

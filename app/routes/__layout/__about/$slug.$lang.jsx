@@ -1,28 +1,18 @@
 import { useLoaderData } from "@remix-run/react";
 import { request, gql } from "graphql-request";
-import styles from "../../styles/artworks.css";
+import MixedContent from "../../../components/mixedContent";
 
-export const links = () => [
-  {
-    rel: "stylesheet",
-    href: styles,
-  },
-];
+export const meta = ({ data: { page } }) => page?.meta;
 
-export const meta = ({ data: { page } }) => page.meta;
-
-export async function loader() {
+export async function loader({params: {slug, lang}}) {
   const query = gql`
-    {
-      page(where: { slug: "about" }) {
+    query {
+      page(where: { slug: "${slug}" }) {
         meta {
           description
           title
         }
-        conntent {
-          blocks
-        }
-        content {
+        content: content${lang.toUpperCase()} {
           blocks {
             ... on TextBlock {
               __typename
@@ -50,12 +40,20 @@ export async function loader() {
   return request(process.env.CONTENT_API, query);
 }
 
-export default function Artworks() {
-  const { page } = useLoaderData();
-  console.log(page)
+export function ErrorBoundary({ error }) {
+  console.error(error);
   return (
-    <main className="artworks">
-      {/* <MixedContent data={page.MixedContent}/> */}
+    <p>
+      Sorry, something went wrong!
+    </p>
+  );
+}
+
+export default function SlugLang() {
+  const { page } = useLoaderData();
+  return (
+    <main className="blocks">
+      <MixedContent data={page.content.blocks}/>
     </main>
   );
 }

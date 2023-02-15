@@ -51,12 +51,10 @@ export async function loader({ params: { slug, index } }) {
   return { slide };
 }
 
-// export const meta = ({ data }) => data.artworksMeta;
-
 export default function Slide() {
   const { slide } = useLoaderData();
   return (
-    <main className="slide">
+    <main className="blocks">
       {(function () {
         switch (slide.__typename) {
           case "Visual":

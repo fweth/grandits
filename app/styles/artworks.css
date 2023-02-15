@@ -4,14 +4,20 @@ main.artworks {
   gap: 80px 160px;
   margin: 160px auto 60px;
 }
-.portrait {
+.single {
   grid-column: span 1;
   width: 540px;
 }
-.landscape {
+.single img {
+  height: 675px
+}
+.double {
   grid-column: span 2;
   width: 970px;
   margin: auto;
+}
+.double img {
+  height: 776px;
 }
 .artworks figcaption {
   margin-top: 24px;

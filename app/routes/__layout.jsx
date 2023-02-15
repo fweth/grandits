@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "@remix-run/react";
+import { Link, NavLink, Outlet } from "@remix-run/react";
 
 import styles from "../styles/layout.css";
 
@@ -13,7 +13,9 @@ export default function Layout() {
   return (
     <>
       <header>
-        <img className="logo" src="/logo.svg" />
+        <Link to="/artworks">
+          <img className="logo" src="/logo.svg" />
+        </Link>
         <nav>
           <NavLink to="/artworks">Artworks</NavLink>
           <NavLink to="/about">About</NavLink>
@@ -22,7 +24,7 @@ export default function Layout() {
         </nav>
       </header>
       <Outlet />
-      <footer/>
+      <footer />
     </>
   );
 }

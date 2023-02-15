@@ -41,10 +41,46 @@ h1 {
   margin-bottom: 54px;
 }
 p {
-  margin: 54px auto 54px;
+  margin: 54px auto 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+h2+p {
+  margin-top: 0;
+}
+p+p{
+  margin-top: 0;
+  text-indent: 54px;
+}
+blockquote {
+  margin-top: 54px;
+  margin-bottom: 54px;
+  margin-left: 48px;
   font-size: 28px;
   line-height: 36px;
 }
 figcaption {
   white-space: pre-wrap;
+}
+main.blocks {
+  width: 832px;
+  margin: 108px auto 200px;
+}
+.visual-block {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+.visual-block figure {
+  width: min-content;
+  min-width: 200px;
+  margin-top: 54px;
+  margin-bottom: 54px;
+}
+.visual-block figcaption {
+  margin-top: 12px;
+}
+.visual-block img {
+  width: auto;
+  height: 300px;
 }

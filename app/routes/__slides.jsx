@@ -11,7 +11,7 @@ export const links = () => [
   },
 ];
 
-export const meta = ({ data: { artwork } }) => artwork.meta;
+export const meta = ({ data: { artwork } }) => artwork?.meta;
 
 export const shouldRevalidate = () => true;
 
@@ -39,6 +39,15 @@ export async function loader({ params: { index } }) {
     redirect("/404");
   }
   return { artwork, i, n };
+}
+
+export function ErrorBoundary({ error }) {
+  console.error(error);
+  return (
+    <p>
+      Sorry, something went wrong!
+    </p>
+  );
 }
 
 export default function Slides() {
