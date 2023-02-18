@@ -6,7 +6,7 @@ export const meta = ({ data: { page } }) => page?.meta;
 
 export async function loader({params: {slug, lang}}) {
   const query = gql`
-    query {
+    {
       page(where: { slug: "${slug}" }) {
         meta {
           description
@@ -52,7 +52,7 @@ export function ErrorBoundary({ error }) {
 export default function SlugLang() {
   const { page } = useLoaderData();
   return (
-    <main className="blocks">
+    <main className="blocks about">
       <MixedContent data={page.content.blocks}/>
     </main>
   );

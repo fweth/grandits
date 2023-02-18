@@ -1,6 +1,7 @@
-export default function Image({ data, width, height }) {
+export default function Image({ className, data, width, height }) {
   return (
     <img
+      className={className}
       src={
         width && height
           ? data.file.url.replace(
@@ -22,6 +23,7 @@ export default function Image({ data, width, height }) {
       alt={data.alt}
       {...(width && { width })}
       {...(height && { height })}
+      loading="lazy"
     />
   );
 }

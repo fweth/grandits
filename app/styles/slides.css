@@ -1,10 +1,32 @@
+body {
+  display: grid;
+  grid-template-rows: 108px 1fr 196px;
+  height: 100vh;
+}
+main.slide {
+  grid-row: 2;
+  overflow-y: scroll;
+}
+main.slide.visual img, main.slide.visual video {
+  height: 100%;
+  object-fit: contain;
+}
 .caption {
   position: fixed;
   bottom: 24px;
   left: 48px;
   white-space: pre;
 }
-.slideNav {
+.slide-nav {
+  font-size: 45px;
+  /* line-height: 60px; */
+  padding: 20px;
+  text-align: center;
+}
+.slide-nav a {
+  color: blue;
+}
+.slide-nav.bottom {
   position: fixed;
   top: auto;
   right: 0;
@@ -13,35 +35,30 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   width: 240px;
+  /* height: 60px; */
   margin: auto;
-  font-size: 45px;
-  line-height: 50px;
   text-align: center;
 }
-.slideNav a {
-  display: flex;
-  align-items: center;
-}
-.slideNav .prev {
+.slide-nav .prev {
   grid-column: 1;
 }
-.slideNav .indicator {
+.slide-nav .indicator {
   grid-column: 2;
 }
-.slideNav .next {
+.slide-nav .next {
   grid-column: 3
 }
-.slideNav svg {
-  height: 40px;
-  color: blue;
-}
-.close {
+.slide-nav.top {
   position: fixed;
   top: 48px;
   right: 48px;
-}
-.close svg {
-  width: 35px;
-  height: 35px;
+  padding: 10px;
+  /* width: 60px;
+  height: 60px; */
   color: blue;
 }
+/*
+top/bottom von slider window 108/196
+mobile: 
+
+*/

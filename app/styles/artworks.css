@@ -1,4 +1,4 @@
-main.artworks {
+main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px 160px;
@@ -19,6 +19,6 @@ main.artworks {
 .double img {
   height: 776px;
 }
-.artworks figcaption {
+figcaption {
   margin-top: 24px;
 }

@@ -6,7 +6,7 @@ import MixedContent from "../../components/mixedContent";
 
 export async function loader({ params: { slug, index } }) {
   const query = gql`
-    query {
+    {
       artwork(where: { slug: "${slug}" }) {
         slides(first: 1, skip: ${index - 1}) {
           ... on MixedContent {
@@ -53,24 +53,26 @@ export async function loader({ params: { slug, index } }) {
 
 export default function Slide() {
   const { slide } = useLoaderData();
-  return (
-    <main className="blocks">
-      {(function () {
-        switch (slide.__typename) {
-          case "Visual":
-            switch (slide.file.mimeType.split("/")[0]) {
-              case "image":
-                const ls = slide.file.width > slide.file.height;
-                return (
-                  <Image data={slide} width={ls ? 1120 : 716} height={896} />
-                );
-              case "video":
-                return <video />;
-            }
-          case "MixedContent":
-            return <MixedContent data={slide.blocks} />;
-        }
-      })()}
-    </main>
-  );
+  switch (slide.__typename) {
+    case "Visual":
+      switch (slide.file.mimeType.split("/")[0]) {
+        case "image":
+          const ls = slide.file.width > slide.file.height;
+          return (
+            <main className="slide visual">
+              <Image data={slide} width={ls ? 1120 : 716} height={896} />
+            </main>
+          );
+        case "video":
+          <main className="slide visual">
+            return <video />;
+          </main>;
+      }
+    case "MixedContent":
+      return (
+        <main className="slide blocks">
+          <MixedContent data={slide.blocks} />
+        </main>
+      );
+  }
 }

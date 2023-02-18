@@ -15,10 +15,10 @@ export const meta = ({ data: { artwork } }) => artwork?.meta;
 
 export const shouldRevalidate = () => true;
 
-export async function loader({ params: { index } }) {
+export async function loader({ params: { slug, index } }) {
   const query = gql`
-    query {
-      artwork(where: { slug: "adilette-carinthia-ry-hypo" }) {
+    {
+      artwork(where: { slug: "${slug}" }) {
         image {
           alt
         }
@@ -28,6 +28,9 @@ export async function loader({ params: { index } }) {
         }
         slides {
           __typename
+          ... on Visual {
+            alt
+          }
         }
       }
     }
@@ -36,18 +39,14 @@ export async function loader({ params: { index } }) {
   const i = parseInt(index);
   const n = artwork.slides.length;
   if (i < 1 || i > n) {
-    redirect("/404");
+    return redirect("/artworks");
   }
   return { artwork, i, n };
 }
 
 export function ErrorBoundary({ error }) {
   console.error(error);
-  return (
-    <p>
-      Sorry, something went wrong!
-    </p>
-  );
+  return <p>Sorry, something went wrong!</p>;
 }
 
 export default function Slides() {
@@ -55,28 +54,24 @@ export default function Slides() {
   return (
     <>
       <Outlet />
-      <div className="caption">{artwork.image.alt}</div>
-      <nav className="slideNav">
+      <div className="caption">
+        {artwork.slides[i - 1]?.alt || artwork.image.alt}
+      </div>
+      <nav className="slide-nav bottom">
         {i > 1 && (
           <Link className="prev" to={`../${i - 1}`} relative="path">
-            <svg>
-              <use href="/icons.svg#leftArrow" />
-            </svg>
+            &larr;
           </Link>
         )}
         <div className="indicator">{`${i}/${n}`}</div>
         {i < n && (
           <Link className="next" to={`../${i + 1}`} relative="path">
-            <svg>
-              <use href="/icons.svg#rightArrow" />
-            </svg>
+            &rarr;
           </Link>
         )}
       </nav>
-      <Link className="close" to="/artworks">
-        <svg>
-          <use href="/icons.svg#close" />
-        </svg>
+      <Link className="slide-nav top" to="/artworks">
+        &times;
       </Link>
     </>
   );

@@ -14,21 +14,23 @@ export const meta = ({ data: { page } }) => page?.meta;
 
 export async function loader() {
   const query = gql`
-    query {
-      page(where: { slug: "artworks" }) {
+    {
+      collection(where: { slug: "artworks" }) {
         meta {
           description
           title
         }
-        collection {
-          image {
-            alt
-            file {
-              url
+        thumbnails {
+          artwork {
+            image {
+              alt
+              file {
+                url
+              }
             }
+            slug
           }
-          singleCol
-          slug
+          doubleCol
         }
       }
     }
@@ -38,30 +40,26 @@ export async function loader() {
 
 export function ErrorBoundary({ error }) {
   console.error(error);
-  return (
-    <p>
-      Sorry, something went wrong!
-    </p>
-  );
+  return <p>Sorry, we couldn't load the artworks!</p>;
 }
 
 export default function Artworks() {
-  const { page } = useLoaderData();
+  const { collection } = useLoaderData();
   return (
-    <main className="artworks">
-      {page.collection.map((aw) => (
+    <main>
+      {collection.thumbnails.map((tn) => (
         <Link
-          className={aw.singleCol ? "single" : "double"}
-          to={`${aw.slug}/1`}
-          key={aw.slug}
+          className={tn.doubleCol ? "double" : "single"}
+          to={`${tn.artwork.slug}/1`}
+          key={tn.artwork.slug}
         >
           <figure>
             <Image
-              data={aw.image}
-              width={aw.singleCol ? 540 : 970}
-              height={aw.singleCol ? 675 : 776}
+              data={tn.artwork.image}
+              width={tn.doubleCol ? 970 : 540}
+              height={tn.doubleCol ? 776 : 675}
             />
-            <figcaption>{aw.image.alt}</figcaption>
+            <figcaption>{tn.artwork.image.alt}</figcaption>
           </figure>
         </Link>
       ))}
