@@ -57,7 +57,7 @@ export default function Slides() {
       <div className="caption">
         {artwork.slides[i - 1]?.alt || artwork.image.alt}
       </div>
-      <nav className="slide-nav bottom">
+      <nav className="icon-nav bc">
         {i > 1 && (
           <Link className="prev" to={`../${i - 1}`} relative="path">
             &larr;
@@ -70,7 +70,7 @@ export default function Slides() {
           </Link>
         )}
       </nav>
-      <Link className="slide-nav top" to="/artworks">
+      <Link className="icon-nav tr" to="/artworks">
         &times;
       </Link>
     </>

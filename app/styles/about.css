@@ -5,15 +5,32 @@ nav.about {
   position: fixed;
   top: 220px;
   left: 20px;
-  font-size: 49px;
-  line-height: 54px;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-xl);
 }
 .lang {
   display: flex;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .lang a {
-  font-size: 28px;
+  font-size: var(--fs-m);
+  line-height: var(--ls-m);
   text-decoration-thickness: 2px;
+}
+@media(max-width: 1300px){
+  nav.about {
+    position: fixed;
+    top: 60px;
+    right: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100px;
+    background: white;
+    font-size: var(--fs-xl);
+    line-height: var(--fs-xl);
+  }
 }

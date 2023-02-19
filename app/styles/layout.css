@@ -9,6 +9,7 @@ header {
   display: flex;
   height: 60px;
   background: white;
+  z-index: 10;
 }
 header img {
   height: 100%;
@@ -18,21 +19,97 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  flex: 1;
   margin-right: 48px;
   margin-left: 125px;
+  font-family: 'SourceSerifPro';
+  font-size: var(--fs-xl);
 }
 nav a {
   display: block;
   color: blue;
-  font-family: 'SourceSerifPro';
-  font-size: 49px;
-    text-decoration: underline;
+  text-decoration: underline;
   text-decoration-thickness: 2.5px;
 }
 nav a.active {
   color: black;
 }
-footer {
-  background: blue;
+.icon-nav.bl {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.show-nav {
+  display: none;
+}
+@media (max-width: 1470px) {
+  header nav {
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+}
+@media (max-width: 1300px) {
+  header {
+    justify-content: space-between;
+  }
+  header nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    line-height: 60px;
+    background: white;
+    transition: transform 400ms;
+    transform: translateY(-100%);
+    z-index: -10;
+  }
+  header nav.active {
+    transform: translateY(0);
+  }
+  .show-nav {
+    /* display: flex; */
+    position: relative;
+    display: block;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    width: 60px;
+    height: 60px;
+    /* padding: 15px; */
+  }
+  .show-nav div {
+    position: absolute;
+    top: 28px;
+    left: 15px;
+    width: 30px;
+    height: 4px;
+    background: blue;
+    transition: transform 400ms, opacity 400ms;
+  }
+  .show-nav .t {
+    transform: translateY(15px);
+  }
+  .show-nav .b {
+    transform: translateY(-15px);
+  }
+  .show-nav.active .t {
+    transform: rotate(30deg);
+  }
+  .show-nav.active .c {
+    transform: rotate(90deg);
+  }
+  .show-nav.active .b {
+    transform: rotate(150deg);
+  }
+  .icon-nav.bl {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+  header img {
+    width: 350px;
+    background: black;
+  }
 }

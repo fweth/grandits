@@ -58,19 +58,13 @@ export default function Slide() {
       switch (slide.file.mimeType.split("/")[0]) {
         case "image":
           const ls = slide.file.width > slide.file.height;
-          return (
-            <main className="slide visual">
-              <Image data={slide} width={ls ? 1120 : 716} height={896} />
-            </main>
-          );
+          return <Image data={slide} width={ls ? 1120 : 716} height={896} />;
         case "video":
-          <main className="slide visual">
-            return <video />;
-          </main>;
+          return <video />;
       }
     case "MixedContent":
       return (
-        <main className="slide blocks">
+        <main className="blocks">
           <MixedContent data={slide.blocks} />
         </main>
       );

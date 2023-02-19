@@ -21,8 +21,8 @@ export default function Image({ className, data, width, height }) {
           : data.file.url
       }
       alt={data.alt}
-      {...(width && { width })}
-      {...(height && { height })}
+      width={width}
+      height={height}
       loading="lazy"
     />
   );

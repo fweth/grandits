@@ -1,64 +1,75 @@
 body {
   display: grid;
-  grid-template-rows: 108px 1fr 196px;
+  grid-template-rows: 108px minmax(0, 1fr) 196px;
   height: 100vh;
 }
-main.slide {
+main {
   grid-row: 2;
-  overflow-y: scroll;
+  height: 100%;
+  overflow: scroll;
 }
-main.slide.visual img, main.slide.visual video {
+img,
+video {
+  grid-row: 2;
   height: 100%;
   object-fit: contain;
 }
 .caption {
   position: fixed;
-  bottom: 24px;
-  left: 48px;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 34px;
+  padding-left: 40px;
   white-space: pre;
 }
-.slide-nav {
-  font-size: 45px;
-  /* line-height: 60px; */
-  padding: 20px;
-  text-align: center;
-}
-.slide-nav a {
-  color: blue;
-}
-.slide-nav.bottom {
+.icon-nav.bc {
   position: fixed;
   top: auto;
   right: 0;
-  bottom: 48px;
+  bottom: 0px;
   left: 0;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  width: 240px;
+  width: 300px;
   /* height: 60px; */
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
-.slide-nav .prev {
+.icon-nav .prev {
   grid-column: 1;
 }
-.slide-nav .indicator {
+.icon-nav .indicator {
   grid-column: 2;
 }
-.slide-nav .next {
-  grid-column: 3
+.icon-nav .next {
+  grid-column: 3;
 }
-.slide-nav.top {
+.icon-nav.tr {
   position: fixed;
-  top: 48px;
-  right: 48px;
-  padding: 10px;
-  /* width: 60px;
-  height: 60px; */
-  color: blue;
+  top: 0px;
+  right: 0px;
 }
-/*
-top/bottom von slider window 108/196
-mobile: 
-
-*/
+@media (max-width: 1300px) {
+  img {
+    width: calc(100% - 30px);
+    margin: auto;
+  }
+  main {
+    grid-row: 2;
+  }
+  .icon-nav {
+    padding: 15px;
+  }
+  .icon-nav.bc {
+    top: 10px;
+    bottom: auto;
+  }
+  .icon-nav.tr {
+    top: 10px;
+  }
+  .caption {
+    padding-bottom: 10px;
+    padding-left: 15px;
+  }
+}

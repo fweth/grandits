@@ -1,24 +1,33 @@
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 540px 540px;
   gap: 80px 160px;
   margin: 160px auto 60px;
 }
+main a {
+  display: block;
+}
 .single {
   grid-column: span 1;
-  width: 540px;
-}
-.single img {
-  height: 675px
 }
 .double {
   grid-column: span 2;
-  width: 970px;
   margin: auto;
-}
-.double img {
-  height: 776px;
 }
 figcaption {
   margin-top: 24px;
+}
+@media (max-width: 1300px) {
+  main {
+    display: block;
+    width: calc(100% - 30px);
+  }
+  .single, .double {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  .single img, .double img {
+    width: 100%;
+    height: auto;
+  }
 }

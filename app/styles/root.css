@@ -8,7 +8,17 @@
   src: url("/fonts/SourceSerifPro.woff") format("woff"),
     url("/fonts/SourceSerifPro.woff2") format("woff2");
 }
-* {
+:root {
+  --fs-xl: 49px;
+  --lh-xl: 54px;
+  --fs-l: 45px;
+  --lh-l: 54px;
+  --fs-m: 28px;
+  --lh-m: 36px;
+  --fs-s: 18px;
+  --lh-s: 24px;
+}
+*:not(img) {
   all: unset;
   display: revert;
   box-sizing: border-box;
@@ -20,10 +30,11 @@ menu {
 }
 body {
   font-family: "SuisseIntl";
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--fs-s);
+  line-height: var(--lh-s);
 }
-a {
+a,
+button {
   cursor: pointer;
 }
 img {
@@ -34,56 +45,61 @@ svg {
   width: 100%;
 }
 h3 {
-  font-size: 45px;
-  line-height: 54px;
-  margin-top: 54px;
+  font-size: var(--fs-l);
+  line-height: var(--lh-l);
+  margin-top: var(--lh-l);
 }
-h3:first-child, p:first-child {
+h3:first-child,
+p:first-child {
   margin-top: 0;
 }
-p, h4, ul {
-  font-size: 28px;
-  line-height: 36px;
+p,
+h4,
+ul {
+  font-size: var(--fs-m);
+  line-height: var(--lh-m);
 }
-p, ul {
-  margin-top: 54px;
+p,
+ul {
+  margin-top: 72px;
 }
-li {
-  font-size: 28px;
-  line-height: 36px;
-  margin-top: 36px;
-  margin-left: 160px;
-}
-p+p{
+p + p {
   margin-top: 0;
   text-indent: 54px;
 }
+blockquote {
+  margin-top: 72px;
+  margin-bottom: 72px;
+  margin-left: 48px;
+  font-size: var(--fs-m);
+  line-height: var(--lh-m);
+}
+li {
+  margin-top: 36px;
+  margin-left: 160px;
+  font-size: var(--fs-m);
+  line-height: var(--lh-m);
+}
 strong {
   position: absolute;
-  /* display: inline-block; */
   margin-left: -160px;
-  font-size: 28px;
-}
-blockquote {
-  margin-top: 54px;
-  margin-bottom: 54px;
-  margin-left: 48px;
-  font-size: 28px;
-  line-height: 36px;
+  font-size: var(--fs-m);
+  /* line-height: var(--lh-m); */
 }
 em {
-  font-size: 18px;
+  font-size: var(--fs-s);
   line-height: 0;
 }
 figcaption {
   white-space: pre-wrap;
 }
-main.blocks {
+.blocks {
   width: 960px;
   margin-left: auto;
   margin-right: auto;
 }
-.visual-block, .text-block {
+.visual-block,
+.text-block {
   margin-bottom: 54px;
 }
 .visual-block {
@@ -101,4 +117,36 @@ main.blocks {
 .visual-block img {
   width: auto;
   height: 300px;
+}
+.icon-nav {
+  font-size: var(--fs-l);
+  padding: 40px;
+  text-align: center;
+}
+a.icon-nav,
+button.icon-nav,
+.icon-nav a,
+.icon-nav button {
+  color: blue;
+}
+@media (max-width: 1300px) {
+  .blocks {
+    width: calc(100% - 30px);
+  }
+  em {
+    display: block;
+    line-height: 24px;
+  }
+}
+@media (max-width: 680px) {
+  :root {
+    --fs-xl: 36px;
+    --lh-xl: 42px;
+    --fs-l: 30px;
+    --lh-l: 36px;
+    --fs-m: 21px;
+    --lh-m: 27px;
+    --fs-s: 15px;
+    --lh-s: 20px;
+  }
 }
