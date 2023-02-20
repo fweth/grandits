@@ -27,7 +27,7 @@ figcaption {
     margin: 8rem auto 3rem;
   }
   .double {
-    width: 100%;
+    width: 84rem;
   }
 }
 @media (max-width: 1000px) {
@@ -40,6 +40,9 @@ figcaption {
   }
   .single {
     width: calc(100% - 16rem);
+  }
+  .double {
+    width: 100%;
   }
   img {
     width: 100%;

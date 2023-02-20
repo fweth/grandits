@@ -52,7 +52,6 @@ export default function Artworks() {
           className={tn.doubleCol ? "double" : "single"}
           to={`${tn.artwork.slug}/1`}
           key={tn.artwork.slug}
-          prefetch="intent"
         >
           <figure>
             <Image
