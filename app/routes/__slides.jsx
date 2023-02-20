@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node"
 import { redirect } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { request, gql } from "graphql-request";
@@ -41,7 +42,7 @@ export async function loader({ params: { slug, index } }) {
   if (i < 1 || i > n) {
     return redirect("/artworks");
   }
-  return { artwork, i, n };
+  return json({ artwork, i, n });
 }
 
 export function ErrorBoundary({ error }) {

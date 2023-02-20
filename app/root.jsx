@@ -9,6 +9,10 @@ import {
 
 import styles from "./styles/root.css";
 
+export const headers = () => ({
+  "Cache-Control": "max-age=300",
+});
+
 export const links = () => [
   {
     rel: "stylesheet",
@@ -20,7 +24,6 @@ export const links = () => [
     href: "/favicon.svg",
   },
 ];
-
 
 export const meta = () => ({
   charset: "utf-8",

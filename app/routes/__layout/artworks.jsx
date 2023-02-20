@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node"
 import { Link, useLoaderData } from "@remix-run/react";
 import { request, gql } from "graphql-request";
 import Image from "../../components/image";
@@ -35,7 +36,7 @@ export async function loader() {
       }
     }
   `;
-  return request(process.env.CONTENT_API, query);
+  return json(await request(process.env.CONTENT_API, query));
 }
 
 export function ErrorBoundary({ error }) {
