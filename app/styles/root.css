@@ -17,7 +17,7 @@
   --lh-m: 36px;
   --fs-s: 18px;
   --lh-s: 24px;
-  /* zoom: 0.8; */
+  zoom: 0.8;
 }
 *:not(img) {
   all: unset;
@@ -34,11 +34,15 @@ body {
   font-size: var(--fs-s);
   line-height: var(--lh-s);
 }
+main {
+  margin-right: auto;
+  margin-left: auto;
+}
 a,
 button {
   cursor: pointer;
 }
-img {
+img, video {
   display: block;
   width: 100%;
 }
@@ -96,8 +100,6 @@ figcaption {
 }
 .blocks {
   width: 960px;
-  margin-left: auto;
-  margin-right: auto;
   padding-right: 20px;
 }
 .visual-block,
