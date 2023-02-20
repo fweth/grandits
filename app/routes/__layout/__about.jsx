@@ -1,6 +1,4 @@
 import { NavLink, Outlet, useLoaderData } from "@remix-run/react";
-import { request, gql } from "graphql-request";
-import MixedContent from "../../components/mixedContent";
 import styles from "../../styles/about.css"
 
 export const links = () => [

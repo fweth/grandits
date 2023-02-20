@@ -1,4 +1,3 @@
-import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { request, gql } from "graphql-request";
 import Image from "../../components/image";
@@ -46,9 +45,9 @@ export async function loader({ params: { slug, index } }) {
       }
     }
   `;
-  return json({
-    slide: (await request(process.env.CONTENT_API, query)).artwork.slides[0],
-  });
+  const slide = (await request(process.env.CONTENT_API, query)).artwork
+    .slides[0];
+  return { slide };
 }
 
 export default function Slide() {
