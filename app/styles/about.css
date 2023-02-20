@@ -23,8 +23,8 @@ nav.about {
   nav.about {
     position: fixed;
     top: 60px;
-    right: 15px;
-    left: 15px;
+    right: 60px;
+    left: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,5 +33,11 @@ nav.about {
     background: white;
     font-size: var(--fs-xl);
     line-height: var(--fs-xl);
+  }
+}
+@media(max-width: 800px) {
+  nav.about {
+    right: 40px;
+    left: 40px;
   }
 }

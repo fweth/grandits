@@ -71,7 +71,7 @@ export default function Slides() {
         )}
       </nav>
       <Link className="icon-nav tr" to="/artworks">
-        &times;
+        &#8626;
       </Link>
     </>
   );

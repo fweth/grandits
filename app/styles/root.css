@@ -17,6 +17,7 @@
   --lh-m: 36px;
   --fs-s: 18px;
   --lh-s: 24px;
+  /* zoom: 0.8; */
 }
 *:not(img) {
   all: unset;
@@ -97,6 +98,7 @@ figcaption {
   width: 960px;
   margin-left: auto;
   margin-right: auto;
+  padding-right: 20px;
 }
 .visual-block,
 .text-block {
@@ -120,7 +122,7 @@ figcaption {
 }
 .icon-nav {
   font-size: var(--fs-l);
-  padding: 40px;
+  padding: 48px;
   text-align: center;
 }
 a.icon-nav,
@@ -130,23 +132,35 @@ button.icon-nav,
   color: blue;
 }
 @media (max-width: 1300px) {
-  .blocks {
-    width: calc(100% - 30px);
-  }
   em {
     display: block;
     line-height: 24px;
   }
+  .blocks {
+    width: calc(100% - 120px);
+  }
+  .icon-nav {
+    padding: 48px;
+  }
 }
-@media (max-width: 680px) {
+@media (max-width: 800px) {
+  .blocks {
+    width: calc(100% - 80px);
+  }
+  .icon-nav {
+    padding: 28px;
+  }
+}
+@media (max-width: 600px) {
   :root {
-    --fs-xl: 36px;
+    zoom: 0.6;
+    /* --fs-xl: 36px;
     --lh-xl: 42px;
     --fs-l: 30px;
     --lh-l: 36px;
     --fs-m: 21px;
     --lh-m: 27px;
     --fs-s: 15px;
-    --lh-s: 20px;
+    --lh-s: 20px; */
   }
 }
