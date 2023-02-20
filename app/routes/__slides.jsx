@@ -59,18 +59,18 @@ export default function Slides() {
       </div>
       <nav className="icon-nav bc">
         {i > 1 && (
-          <Link className="prev" to={`../${i - 1}`} relative="path">
+          <Link className="prev" to={`../${i - 1}`} relative="path" prefetch="render">
             &larr;
           </Link>
         )}
         <div className="indicator">{`${i}/${n}`}</div>
         {i < n && (
-          <Link className="next" to={`../${i + 1}`} relative="path">
+          <Link className="next" to={`../${i + 1}`} relative="path" prefetch="render">
             &rarr;
           </Link>
         )}
       </nav>
-      <Link className="icon-nav tr" to="/artworks">
+      <Link className="icon-nav tr" to="/artworks" prefetch="intent">
         &#8626;
       </Link>
     </>
