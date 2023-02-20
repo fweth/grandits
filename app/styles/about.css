@@ -5,6 +5,7 @@ nav.about {
   position: fixed;
   top: 220px;
   left: 20px;
+  font-family: 'SourceSerifPro';
   font-size: var(--fs-xl);
   line-height: var(--lh-xl);
 }

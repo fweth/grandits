@@ -42,7 +42,7 @@ nav a.active {
 .show-nav {
   display: none;
 }
-@media (max-width: 1470px) {
+@media (max-width: 1500px) {
   header nav {
     margin-right: 12px;
     margin-left: 12px;
@@ -103,6 +103,11 @@ nav a.active {
   .show-nav.active .b {
     transform: rotate(150deg);
   }
+  .icon-nav.bl {
+    display: none;
+  }
+}
+@media (max-width: 1300px) {
   .icon-nav.bl {
     display: none;
   }

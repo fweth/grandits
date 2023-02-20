@@ -12,15 +12,27 @@ main a {
 }
 .double {
   grid-column: span 2;
+  width: 970px;
   margin: auto;
 }
 figcaption {
   margin-top: 24px;
 }
+@media (max-width: 1500px) {
+  main {
+    display: grid;
+    grid-template-columns: 480px 480px;
+    gap: 80px 80px;
+    margin: 80px auto 30px;
+  }
+  .double {
+    width: 800px;
+  }
+}
 @media (max-width: 1300px) {
   main {
     display: block;
-    width: calc(100% - 30px);
+    width: calc(100% - 100px);
   }
   .single, .double {
     width: 100%;
