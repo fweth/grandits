@@ -17,7 +17,7 @@
   --lh-m: 3.6rem;
   --fs-s: 1.8rem;
   --lh-s: 2.4rem;
-  font-size: 0.5rem;
+  font-size: 8px;
 }
 *:not(img) {
   all: unset;
@@ -163,7 +163,7 @@ button.icon-nav,
 @media (max-width: 500px) {
   :root {
     /* zoom: 0.6; */
-    font-size: 0.4rem;
+    font-size: 6px;
     /* --fs-xl: 36px;
     --lh-xl: 42px;
     --fs-l: 30px;
