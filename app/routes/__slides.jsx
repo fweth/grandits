@@ -31,6 +31,9 @@ export async function loader({ params: { slug, index } }) {
           ... on Visual {
             alt
           }
+          ... on MixedContent {
+            alt
+          }
         }
       }
     }
@@ -76,7 +79,11 @@ export default function Slides() {
           &rarr;
         </Link>
       </nav>
-      <Link className="icon-nav tr" to="/artworks" prefetch="intent">
+      <Link
+        className="icon-nav tr"
+        to="/artworks"
+        prefetch="intent"
+      >
         <div className="t" />
         <div className="b" />
       </Link>
