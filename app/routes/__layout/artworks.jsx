@@ -20,7 +20,7 @@ export async function loader() {
           description
           title
         }
-        thumbnails {
+        thumbnails(first: 100) {
           artwork {
             image {
               alt
@@ -47,7 +47,7 @@ export default function Artworks() {
   const { collection } = useLoaderData();
   return (
     <main>
-      {collection.thumbnails.map((tn) => (
+      {collection.thumbnails.filter((tn)=>tn.artwork).map((tn) => (
         <Link
           className={tn.doubleCol ? "double" : "single"}
           to={`${tn.artwork.slug}/1`}
