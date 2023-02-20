@@ -58,20 +58,27 @@ export default function Slides() {
         {artwork.slides[i - 1]?.alt || artwork.image.alt}
       </div>
       <nav className="icon-nav bc">
-        {i > 1 && (
-          <Link className="prev" to={`../${i - 1}`} relative="path" prefetch="render">
-            &larr;
-          </Link>
-        )}
+        <Link
+          className="prev"
+          to={`../${((i + n - 2) % n) + 1}`}
+          relative="path"
+          prefetch="render"
+        >
+          &larr;
+        </Link>
         <div className="indicator">{`${i}/${n}`}</div>
-        {i < n && (
-          <Link className="next" to={`../${i + 1}`} relative="path" prefetch="render">
-            &rarr;
-          </Link>
-        )}
+        <Link
+          className="next"
+          to={`../${(i % n) + 1}`}
+          relative="path"
+          prefetch="render"
+        >
+          &rarr;
+        </Link>
       </nav>
       <Link className="icon-nav tr" to="/artworks" prefetch="intent">
-        &#8626;
+        <div className="t" />
+        <div className="b" />
       </Link>
     </>
   );

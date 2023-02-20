@@ -51,6 +51,7 @@ export default function Artworks() {
         <Link
           className={tn.doubleCol ? "double" : "single"}
           to={`${tn.artwork.slug}/1`}
+          prefetch="intent"
           key={tn.artwork.slug}
         >
           <figure>

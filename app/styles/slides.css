@@ -45,8 +45,25 @@ main.visual * {
 }
 .icon-nav.tr {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 3rem;
+  right: 3rem;
+  width: 6rem;
+  height: 6rem;
+  padding: 0;
+}
+.icon-nav.tr div {
+  position: absolute;
+  top: 2.8rem;
+  left: 1.2rem;
+  width: 3.6rem;
+  height: 0.4rem;
+  background: blue;
+}
+.icon-nav.tr .t {
+  transform: rotate(45deg);
+}
+.icon-nav.tr .b {
+  transform: rotate(-45deg);
 }
 @media (max-width: 1000px) {
   img {
@@ -69,6 +86,9 @@ main.visual * {
   main.slide {
     width: calc(100% - 8rem);
     margin: auto;
+  }
+  .icon-nav.tr {
+    top: 0.8rem;
   }
   .caption {
     padding-bottom: 1rem;
