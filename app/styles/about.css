@@ -1,43 +1,43 @@
 main.about {
-  margin-top: 160px;
+  margin-top: 16rem;
 }
 nav.about {
   position: fixed;
-  top: 220px;
-  left: 20px;
+  top: 22rem;
+  left: 2rem;
   font-family: 'SourceSerifPro';
   font-size: var(--fs-xl);
   line-height: var(--lh-xl);
 }
 .lang {
   display: flex;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 1.2rem;
+  margin-top: .8rem;
 }
 .lang a {
   font-size: var(--fs-m);
   line-height: var(--ls-m);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 0.2rem;
 }
-@media(max-width: 1300px){
+@media(max-width: 1000px){
   nav.about {
     position: fixed;
-    top: 60px;
-    right: 60px;
-    left: 60px;
+    top: 6rem;
+    right: 6rem;
+    left: 6rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    height: 100px;
+    gap: 2rem;
+    height: 10rem;
     background: white;
     font-size: var(--fs-xl);
     line-height: var(--fs-xl);
   }
 }
-@media(max-width: 800px) {
+@media(max-width: 600px) {
   nav.about {
-    right: 40px;
-    left: 40px;
+    right: 4rem;
+    left: 4rem;
   }
 }

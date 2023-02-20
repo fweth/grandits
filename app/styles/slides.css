@@ -1,11 +1,11 @@
 body {
   display: grid;
-  grid-template-rows: 108px minmax(0, 1fr) 196px;
+  grid-template-rows: 10.8rem minmax(0, 1fr) 19.6rem;
   height: 100vh;
 }
 main {
   grid-row: 2;
-  width: calc(100% - 96px);
+  width: calc(100% - 9.6rem);
   height: 100%;
   overflow: scroll;
 }
@@ -17,19 +17,19 @@ main.visual * {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding-bottom: 20px;
-  padding-left: 48px;
+  padding-bottom: 2rem;
+  padding-left: 4.8rem;
   white-space: pre;
 }
 .icon-nav.bc {
   position: fixed;
   top: auto;
   right: 0;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  width: 300px;
+  width: 30rem;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -45,12 +45,12 @@ main.visual * {
 }
 .icon-nav.tr {
   position: fixed;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   img {
-    width: calc(100% - 120px);
+    width: calc(100% - 12rem);
     margin: auto;
   }
   .icon-nav.bc {
@@ -58,20 +58,20 @@ main.visual * {
     bottom: auto;
   }
   .icon-nav.tr {
-    right: 12px;
+    right: 1.2rem;
   }
   .caption {
-    padding-bottom: 10px;
-    padding-left: 60px;
+    padding-bottom: 1rem;
+    padding-left: 6rem;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   main.slide {
-    width: calc(100% - 80px);
+    width: calc(100% - 8rem);
     margin: auto;
   }
   .caption {
-    padding-bottom: 10px;
-    padding-left: 40px;
+    padding-bottom: 1rem;
+    padding-left: 4rem;
   }
 }

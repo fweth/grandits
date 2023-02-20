@@ -1,8 +1,8 @@
 main {
   display: grid;
-  grid-template-columns: 540px 540px;
-  gap: 80px 160px;
-  margin: 160px auto 60px;
+  grid-template-columns: 54rem 54rem;
+  gap: 8rem 16rem;
+  margin: 16rem auto 6rem;
 }
 main a {
   display: block;
@@ -14,41 +14,41 @@ main a {
 }
 .double {
   grid-column: span 2;
-  width: 970px;
+  width: 97rem;
 }
 figcaption {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
-@media (max-width: 1500px) {
+@media (max-width: 1200px) {
   main {
     display: grid;
-    grid-template-columns: 480px 480px;
-    gap: 80px 80px;
-    margin: 80px auto 30px;
+    grid-template-columns: 48rem 48rem;
+    gap: 8rem 8rem;
+    margin: 8rem auto 3rem;
   }
   .double {
     width: 100%;
   }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   main {
     display: block;
-    width: calc(100% - 120px);
+    width: calc(100% - 12rem);
   }
   main a {
-    margin-bottom: 80px;
+    margin-bottom: 8rem;
   }
   .single {
-    width: calc(100% - 160px);
+    width: calc(100% - 16rem);
   }
   img {
     width: 100%;
     height: auto;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   main {
     display: block;
-    width: calc(100% - 80px);
+    width: calc(100% - 8rem);
   }
 }

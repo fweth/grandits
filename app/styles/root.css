@@ -9,15 +9,16 @@
     url("/fonts/SourceSerifPro.woff2") format("woff2");
 }
 :root {
-  --fs-xl: 49px;
-  --lh-xl: 54px;
-  --fs-l: 45px;
-  --lh-l: 54px;
-  --fs-m: 28px;
-  --lh-m: 36px;
-  --fs-s: 18px;
-  --lh-s: 24px;
-  zoom: 0.8;
+  --fs-xl: 4.9rem;
+  --lh-xl: 5.4rem;
+  --fs-l: 4.5rem;
+  --lh-l: 5.4rem;
+  --fs-m: 2.8rem;
+  --lh-m: 3.6rem;
+  --fs-s: 1.8rem;
+  --lh-s: 2.4rem;
+  /* zoom: 0.8; */
+  font-size: 0.5rem;
 }
 *:not(img) {
   all: unset;
@@ -45,6 +46,7 @@ button {
 img, video {
   display: block;
   width: 100%;
+  height: auto;
 }
 svg {
   width: 100%;
@@ -66,28 +68,28 @@ ul {
 }
 p,
 ul {
-  margin-top: 72px;
+  margin-top: 7.2rem;
 }
 p + p {
   margin-top: 0;
-  text-indent: 54px;
+  text-indent: 5.4rem;
 }
 blockquote {
-  margin-top: 72px;
-  margin-bottom: 72px;
-  margin-left: 48px;
+  margin-top: 7.2rem;
+  margin-bottom: 7.2rem;
+  margin-left: 4.8rem;
   font-size: var(--fs-m);
   line-height: var(--lh-m);
 }
 li {
-  margin-top: 36px;
-  margin-left: 160px;
+  margin-top: 3.6rem;
+  margin-left: 16rem;
   font-size: var(--fs-m);
   line-height: var(--lh-m);
 }
 strong {
   position: absolute;
-  margin-left: -160px;
+  margin-left: -16rem;
   font-size: var(--fs-m);
   /* line-height: var(--lh-m); */
 }
@@ -99,32 +101,32 @@ figcaption {
   white-space: pre-wrap;
 }
 .blocks {
-  width: 960px;
-  padding-right: 20px;
+  width: 96rem;
+  padding-right: 2rem;
 }
 .visual-block,
 .text-block {
-  margin-bottom: 54px;
+  margin-bottom: 5.4rem;
 }
 .visual-block {
   display: flex;
   justify-content: center;
-  gap: 48px;
+  gap: 4.8rem;
 }
 .visual-block figure {
   width: min-content;
-  min-width: 200px;
+  min-width: 20rem;
 }
 .visual-block figcaption {
-  margin-top: 12px;
+  margin-top: 1.2rem;
 }
 .visual-block img {
   width: auto;
-  height: 300px;
+  height: 30rem;
 }
 .icon-nav {
   font-size: var(--fs-l);
-  padding: 48px;
+  padding: 4.8rem;
   text-align: center;
 }
 a.icon-nav,
@@ -133,29 +135,30 @@ button.icon-nav,
 .icon-nav button {
   color: blue;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   em {
     display: block;
-    line-height: 24px;
+    line-height: 2.4rem;
   }
   .blocks {
-    width: calc(100% - 120px);
+    width: calc(100% - 12rem);
   }
   .icon-nav {
-    padding: 48px;
+    padding: 4.8rem;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .blocks {
-    width: calc(100% - 80px);
+    width: calc(100% - 8rem);
   }
   .icon-nav {
     padding: 28px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   :root {
-    zoom: 0.6;
+    /* zoom: 0.6; */
+    font-size: 0.4rem;
     /* --fs-xl: 36px;
     --lh-xl: 42px;
     --fs-l: 30px;

@@ -1,13 +1,13 @@
 body {
   display: grid;
-  grid-template-rows: auto 1fr 60px;
+  grid-template-rows: auto 1fr 6rem;
   min-height: 100vh;
 }
 header {
   position: sticky;
   top: 0;
   display: flex;
-  height: 60px;
+  height: 6rem;
   background: white;
   z-index: 10;
 }
@@ -20,8 +20,8 @@ header nav {
   justify-content: space-between;
   align-items: center;
   flex: 1;
-  margin-right: 48px;
-  margin-left: 125px;
+  margin-right: 4.8rem;
+  margin-left: 12.5rem;
   font-family: 'SourceSerifPro';
   font-size: var(--fs-xl);
 }
@@ -29,7 +29,7 @@ nav a {
   display: block;
   color: blue;
   text-decoration: underline;
-  text-decoration-thickness: 2.5px;
+  text-decoration-thickness: 0.25rem;
 }
 nav a.active {
   color: black;
@@ -42,25 +42,25 @@ nav a.active {
 .show-nav {
   display: none;
 }
-@media (max-width: 1500px) {
+@media (max-width: 1200px) {
   header nav {
-    margin-right: 12px;
-    margin-left: 12px;
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
   }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   header {
     justify-content: space-between;
   }
   header nav {
     position: absolute;
-    top: 60px;
+    top: 6rem;
     right: 0;
     left: 0;
     flex-direction: column;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    line-height: 60px;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    line-height: 6rem;
     background: white;
     transition: transform 400ms;
     transform: translateY(-100%);
@@ -72,24 +72,24 @@ nav a.active {
   .show-nav {
     position: relative;
     display: block;
-    width: 60px;
-    height: 60px;
-    margin-right: 45px;
+    width: 6rem;
+    height: 6rem;
+    margin-right: 4.5rem;
   }
   .show-nav div {
     position: absolute;
-    top: 28px;
-    left: 15px;
-    width: 30px;
-    height: 4px;
+    top: 2.8rem;
+    left: 1.5rem;
+    width: 3rem;
+    height: .4rem;
     background: blue;
     transition: transform 400ms, opacity 400ms;
   }
   .show-nav .t {
-    transform: translateY(15px);
+    transform: translateY(1.5rem);
   }
   .show-nav .b {
-    transform: translateY(-15px);
+    transform: translateY(-1.5rem);
   }
   .show-nav.active .t {
     transform: rotate(30deg);
@@ -103,18 +103,16 @@ nav a.active {
   .icon-nav.bl {
     display: none;
   }
-}
-@media (max-width: 1300px) {
   .icon-nav.bl {
     display: none;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   header img {
-    width: 350px;
+    width: 35rem;
     background: black;
   }
   .show-nav {
-    margin-right: 25px;
+    margin-right: 2.5rem;
   }
 }
