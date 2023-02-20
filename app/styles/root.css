@@ -147,6 +147,12 @@ button.icon-nav,
   }
 }
 @media (max-width: 600px) {
+  li {
+    margin-left: 12rem;
+  }
+  strong {
+    margin-left: -12rem;
+  }
   .blocks {
     width: calc(100% - 8rem);
   }
