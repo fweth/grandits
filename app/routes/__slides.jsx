@@ -1,5 +1,6 @@
 import { redirect } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import {useEffect, useRef} from "react";
 import { request, gql } from "graphql-request";
 
 import styles from "../styles/slides.css";
@@ -53,7 +54,27 @@ export function ErrorBoundary({ error }) {
 }
 
 export default function Slides() {
+  const nextRef = useRef();
+  const prevRef = useRef();
+  const closeRef = useRef();
   const { artwork, i, n } = useLoaderData();
+  useEffect(function(){
+    window.onkeydown=function(e){
+      switch(e.key) {
+        case "ArrowLeft":
+          prevRef.current.click();
+          return;
+        case "ArrowRight":
+          nextRef.current.click();
+          return;
+        case "Escape":
+          closeRef.current.click();
+      }
+    }
+    return function(){
+      window.onkeydown = null;
+    }
+  }, [])
   return (
     <>
       <Outlet key={i} />
@@ -66,6 +87,7 @@ export default function Slides() {
           to={`../${((i + n - 2) % n) + 1}`}
           relative="path"
           prefetch="intent"
+          ref={prevRef}
         >
           &larr;
         </Link>
@@ -75,6 +97,7 @@ export default function Slides() {
           to={`../${(i % n) + 1}`}
           relative="path"
           prefetch="intent"
+          ref={nextRef}
         >
           &rarr;
         </Link>
@@ -83,6 +106,7 @@ export default function Slides() {
         className="icon-nav tr"
         to="/artworks"
         prefetch="intent"
+        ref={closeRef}
       >
         <div className="t" />
         <div className="b" />
