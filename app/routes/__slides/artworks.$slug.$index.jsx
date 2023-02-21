@@ -23,7 +23,9 @@ export async function loader({ params: { slug, index } }) {
                 columns {
                   alt
                   file {
+                    height
                     url
+                    width
                   }
                   id
                 }
@@ -47,31 +49,31 @@ export async function loader({ params: { slug, index } }) {
   `;
   const slide = (await request(process.env.CONTENT_API, query)).artwork
     .slides[0];
-  return { slide };
+  return { slide, index };
 }
 
 export default function Slide() {
-  const { slide } = useLoaderData();
+  const { slide, index } = useLoaderData();
   switch (slide.__typename) {
     case "Visual":
       switch (slide.file.mimeType.split("/")[0]) {
         case "image":
           const ls = slide.file.width > slide.file.height;
           return (
-            <main className="visual">
-              <Image data={slide} width={ls ? 1120 : 716} height={896} />
+            <main className="visual" key={index}>
+              <Image data={slide} />
             </main>
           );
         case "video":
           return (
-            <main className="visual">
+            <main className="visual" key={index}>
               <video src={slide.file.url} autoPlay muted playsInline />
             </main>
           );
       }
     case "MixedContent":
       return (
-        <main className="blocks">
+        <main className="blocks" key={index}>
           <MixedContent data={slide.blocks} />
         </main>
       );

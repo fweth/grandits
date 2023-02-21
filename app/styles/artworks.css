@@ -11,6 +11,7 @@ main a {
 }
 .single {
   grid-column: span 1;
+  width: 100%;
 }
 .double {
   grid-column: span 2;

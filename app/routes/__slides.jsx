@@ -65,7 +65,7 @@ export default function Slides() {
           className="prev"
           to={`../${((i + n - 2) % n) + 1}`}
           relative="path"
-          prefetch="render"
+          prefetch="intent"
         >
           &larr;
         </Link>
@@ -74,7 +74,7 @@ export default function Slides() {
           className="next"
           to={`../${(i % n) + 1}`}
           relative="path"
-          prefetch="render"
+          prefetch="intent"
         >
           &rarr;
         </Link>
