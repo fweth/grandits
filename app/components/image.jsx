@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
-import io from "../utils/intersectionObserver.client";
+import io from "../utils/lazyLoad.client";
 const sizes = [60, 120, 240, 360, 720, 840, 1260, 1680];
 export default function Image({ className = "", data, width, height }) {
   const imgRef = useRef();
   useEffect(function () {
     const img = imgRef.current;
+    img.classList.add("loading")
     io.observe(img);
     return function(){
       io.unobserve(img);
@@ -17,7 +18,7 @@ export default function Image({ className = "", data, width, height }) {
     );
   const jsx = (
     <img
-      className={className.length ? `${className} loading` : "loading"}
+      className={className}
       src={url(50)}
       srcSet={sizes.map((sz) => `${url(sz)} ${sz}w`).join(",")}
       sizes="50px"

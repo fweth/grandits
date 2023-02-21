@@ -3,11 +3,11 @@ main.about {
 }
 nav.about {
   position: fixed;
-  top: 22rem;
+  top: 21.5rem;
   left: 2rem;
   font-family: 'SourceSerifPro';
   font-size: var(--fs-xl);
-  line-height: var(--lh-xl);
+  line-height: var(--lh-l);
 }
 .lang {
   display: flex;

@@ -47,33 +47,32 @@ export async function loader({ params: { slug, index } }) {
       }
     }
   `;
-  const slide = (await request(process.env.CONTENT_API, query)).artwork
-    .slides[0];
-  return { slide, index };
+  const data = await request(process.env.CONTENT_API, query);
+  return { slide: data.artwork.slides[0] };
 }
 
 export default function Slide() {
-  const { slide, index } = useLoaderData();
+  const { slide } = useLoaderData();
   switch (slide.__typename) {
     case "Visual":
       switch (slide.file.mimeType.split("/")[0]) {
         case "image":
           const ls = slide.file.width > slide.file.height;
           return (
-            <main className="visual" key={index}>
+            <main className="visual">
               <Image data={slide} />
             </main>
           );
         case "video":
           return (
-            <main className="visual" key={index}>
-              <video src={slide.file.url} autoPlay muted playsInline />
+            <main className="visual">
+              <video src={slide.file.url} controls playsInline />
             </main>
           );
       }
     case "MixedContent":
       return (
-        <main className="blocks" key={index}>
+        <main className="blocks">
           <MixedContent data={slide.blocks} />
         </main>
       );

@@ -56,7 +56,7 @@ export default function Slides() {
   const { artwork, i, n } = useLoaderData();
   return (
     <>
-      <Outlet />
+      <Outlet key={i} />
       <div className="caption">
         {artwork.slides[i - 1]?.alt || artwork.image.alt}
       </div>
