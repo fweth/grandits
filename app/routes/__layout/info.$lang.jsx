@@ -133,7 +133,7 @@ export default function Info() {
   return (
     <>
       <Nav articles={artclData} navRef={navRef} />
-      <main className="about" ref={mainRef}>
+      <main className="blocks about" ref={mainRef}>
         {artclData.map((article) => (
           <article
             className="blocks"
