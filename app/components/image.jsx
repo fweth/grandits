@@ -14,7 +14,7 @@ export default function Image({ className = "", data, width, height }) {
   const url = (sz) =>
     data.file.url.replace(
       "media.graphassets.com",
-      `media.graphassets.com/resize=w:${sz},fit:max/quality=value:50/compress`
+      `media.graphassets.com/resize=w:${sz},fit:max`
     );
   const jsx = (
     <img
