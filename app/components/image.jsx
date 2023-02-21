@@ -5,16 +5,16 @@ export default function Image({ className = "", data, width, height }) {
   const imgRef = useRef();
   useEffect(function () {
     const img = imgRef.current;
-    img.classList.add("loading")
+    img.classList.add("loading");
     io.observe(img);
-    return function(){
+    return function () {
       io.unobserve(img);
-    }
+    };
   }, []);
   const url = (sz) =>
     data.file.url.replace(
       "media.graphassets.com",
-      `media.graphassets.com/resize=fit:max,width:${sz}`
+      `media.graphassets.com/resize=w:${sz},fit:max/quality=value:50/compress`
     );
   const jsx = (
     <img
@@ -26,8 +26,8 @@ export default function Image({ className = "", data, width, height }) {
       width={width || data.file.width}
       height={height || data.file.height}
       loading="lazy"
-      onLoad={function(e){
-        e.target.classList.add("loaded")
+      onLoad={function (e) {
+        e.target.classList.add("loaded");
       }}
       ref={imgRef}
     />
