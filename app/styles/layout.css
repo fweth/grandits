@@ -54,6 +54,7 @@ nav a.active {
 @media (max-width: 1200px) {
   main {
     margin: 14rem auto 4rem;
+    width: 104rem;
   }
   header nav {
     margin-right: 1.2rem;

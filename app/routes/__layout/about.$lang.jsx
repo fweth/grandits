@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 import { NavLink, useLoaderData } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 import { request, gql } from "graphql-request";
@@ -67,7 +68,7 @@ export async function loader({ params: { lang } }) {
       }
     }
   `;
-  return { ...(await request(process.env.CONTENT_API, query)), lang };
+  return json({ ...(await request(process.env.CONTENT_API, query)), lang });
 }
 
 export function ErrorBoundary({ error }) {
@@ -94,12 +95,12 @@ export default function Info() {
   useEffect(function () {
     const artcls = mainRef.current.querySelectorAll("article");
     const hrefs = navRef.current.querySelectorAll("a[data-id]");
-    for(let i = 0; i < n; i++) {
-      hrefs[i].onclick=function(e){
+    for (let i = 0; i < n; i++) {
+      hrefs[i].onclick = function (e) {
         e.preventDefault();
-        console.log('scroll to', artcls[i])
-        artcls[i].scrollIntoView({behavior: "smooth", block: "center"})
-      }
+        console.log("scroll to", artcls[i]);
+        artcls[i].scrollIntoView({ behavior: "smooth", block: "center" });
+      };
     }
     // let active = null;
     function handler() {
@@ -107,27 +108,27 @@ export default function Info() {
       for (let el of artcls) {
         const bcr = el.getBoundingClientRect();
         const diff = Math.abs(2 * bcr.y + bcr.height - window.innerHeight);
-        if(diff < min) {
+        if (diff < min) {
           min = diff;
-          minArg = el.dataset.id
+          minArg = el.dataset.id;
         }
       }
-      console.log(minArg)
-      for(let el of hrefs) {
-        if(el.dataset.id === minArg) {
-          el.classList.add("active")
+      console.log(minArg);
+      for (let el of hrefs) {
+        if (el.dataset.id === minArg) {
+          el.classList.add("active");
         } else {
-          el.classList.remove("active")
+          el.classList.remove("active");
         }
         // active = minArg
       }
     }
-    (window.onscroll=window.onresize=handler)();
+    (window.onscroll = window.onresize = handler)();
     return function () {
-      for(let i = 0; i < n; i++) {
-        hrefs[i].onclick=null;
+      for (let i = 0; i < n; i++) {
+        hrefs[i].onclick = null;
       }
-      window.onscroll=window.onresize=null;
+      window.onscroll = window.onresize = null;
     };
   }, []);
   return (

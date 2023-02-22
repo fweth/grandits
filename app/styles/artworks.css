@@ -1,6 +1,6 @@
 main {
   display: grid;
-  grid-template-columns: 54rem 54rem;
+  grid-template-columns: 1fr 1fr;
   gap: 8rem 16rem;
 }
 main a {
@@ -33,8 +33,6 @@ figcaption {
 }
 @media (max-width: 1200px) {
   main {
-    display: grid;
-    grid-template-columns: 48rem 48rem;
     gap: 8rem 8rem;
   }
   .double {
