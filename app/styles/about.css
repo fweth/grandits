@@ -2,14 +2,14 @@ nav.about {
   position: fixed;
   top: 21.5rem;
   left: 2rem;
-  font-family: 'SourceSerifPro';
+  font-family: "SourceSerifPro";
   font-size: var(--fs-xl);
   line-height: var(--lh-l);
 }
 .lang {
   display: flex;
   gap: 1.2rem;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
 }
 .lang a {
   font-size: var(--fs-m);
@@ -19,12 +19,15 @@ nav.about {
 article {
   margin-bottom: 16rem;
 }
-@media(max-width: 1200px){
+@media (max-width: 1200px) {
   nav.about {
     top: 13.5rem;
   }
 }
-@media(max-width: 1000px){
+@media (max-width: 1000px) {
+  main {
+    margin-top: 20rem;
+  }
   nav.about {
     position: fixed;
     top: 6rem;
@@ -40,7 +43,7 @@ article {
     line-height: var(--fs-xl);
   }
 }
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   nav.about {
     right: 4rem;
     left: 4rem;
