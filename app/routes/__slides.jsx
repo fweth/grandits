@@ -21,7 +21,7 @@ export async function loader({ params: { slug, index } }) {
     {
       artwork(where: { slug: "${slug}" }) {
         image {
-          alt
+          caption
         }
         meta {
           description
@@ -30,10 +30,10 @@ export async function loader({ params: { slug, index } }) {
         slides {
           __typename
           ... on Visual {
-            alt
+            caption
           }
           ... on MixedContent {
-            alt
+            caption
           }
         }
       }
@@ -79,7 +79,7 @@ export default function Slides() {
     <>
       <Outlet key={i} />
       <div className="caption">
-        {artwork.slides[i - 1]?.alt || artwork.image.alt}
+        {artwork.slides[i - 1]?.caption || artwork.image.caption}
       </div>
       <nav className="icon-nav bc">
         <Link

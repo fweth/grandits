@@ -22,7 +22,7 @@ export default function Image({ className = "", data, width, height }) {
       src={url(50)}
       srcSet={sizes.map((sz) => `${url(sz)} ${sz}w`).join(",")}
       sizes="50px"
-      alt={data.alt}
+      // alt={data.alt}
       width={width || data.file.width}
       height={height || data.file.height}
       loading="lazy"

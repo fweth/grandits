@@ -23,7 +23,7 @@ export async function loader() {
         thumbnails(first: 100) {
           artwork {
             image {
-              alt
+              caption
               file {
                 url
               }
@@ -60,7 +60,7 @@ export default function Artworks() {
               width={tn.doubleCol ? 970 : 540}
               height={tn.doubleCol ? 776 : 675}
             />
-            <figcaption>{tn.artwork.image.alt}</figcaption>
+            <figcaption>{tn.artwork.image.caption}</figcaption>
           </figure>
         </Link>
       ))}

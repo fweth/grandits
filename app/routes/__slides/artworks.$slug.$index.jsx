@@ -21,7 +21,7 @@ export async function loader({ params: { slug, index } }) {
               ... on VisualBlock {
                 __typename
                 columns {
-                  alt
+                  caption
                   file {
                     height
                     url
@@ -35,7 +35,7 @@ export async function loader({ params: { slug, index } }) {
           }
           ... on Visual {
             __typename
-            alt
+            caption
             file {
               height
               mimeType

@@ -24,7 +24,7 @@ export async function loader({params: {slug, lang}}) {
             ... on VisualBlock {
               __typename
               columns {
-                alt
+                caption
                 file {
                   url
                 }

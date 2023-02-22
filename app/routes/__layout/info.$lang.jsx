@@ -41,7 +41,7 @@ export async function loader({ params: { lang } }) {
         }
         articles {
           ... on MixedContent {
-            alt
+            caption
             blocks {
               __typename
               ... on TextBlock {
@@ -53,7 +53,7 @@ export async function loader({ params: { lang } }) {
               ... on VisualBlock {
                 id
                 columns {
-                  alt
+                  caption
                   file {
                     url
                     width
@@ -83,7 +83,7 @@ export default function Info() {
     lang: compareLang,
   } = useLoaderData();
   artclData = artclData.filter(function (article) {
-    const [title, lang] = article.alt.split(".");
+    const [title, lang] = article.caption.split(".");
     if (lang && lang !== compareLang) {
       return false;
     }
