@@ -77,7 +77,7 @@ export default function Slides() {
   }, [])
   return (
     <>
-      <Outlet key={i} />
+      <Outlet/>
       <div className="caption">
         {artwork.slides[i - 1]?.caption || artwork.image.caption}
       </div>
@@ -86,7 +86,6 @@ export default function Slides() {
           className="prev"
           to={`../${((i + n - 2) % n) + 1}`}
           relative="path"
-          prefetch="intent"
           ref={prevRef}
         >
           &larr;
@@ -96,7 +95,6 @@ export default function Slides() {
           className="next"
           to={`../${(i % n) + 1}`}
           relative="path"
-          prefetch="intent"
           ref={nextRef}
         >
           &rarr;
@@ -105,7 +103,6 @@ export default function Slides() {
       <Link
         className="icon-nav tr"
         to="/artworks"
-        prefetch="intent"
         ref={closeRef}
       >
         <div className="t" />

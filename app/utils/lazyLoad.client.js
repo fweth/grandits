@@ -1,7 +1,12 @@
-const rt = window.devicePixelRatio;
-const io = new IntersectionObserver(function (entries) {
-  entries.forEach(function ({ target: img }) {
-    img.sizes = `${rt *  img.offsetWidth}px`;
-  });
-});
+const rt = window.devicePixelRatio || 1;
+const io = new IntersectionObserver(
+  function (entries) {
+    entries.forEach(function ({ target: img, intersectionRatio: ir }) {
+      if (ir > 0) {
+        const w = rt * img.offsetWidth;
+        img.sizes = `${w}px`;
+      }
+    });
+  },
+);
 export default io;

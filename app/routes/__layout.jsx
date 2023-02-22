@@ -18,20 +18,20 @@ function Header() {
         setActive(false);
       }}
     >
-      <Link to="/artworks" prefetch="intent">
+      <Link to="/artworks">
         <img className="logo" src="/logo.svg" />
       </Link>
       <nav className={active ? "active" : undefined}>
-        <NavLink to="/artworks" prefetch="intent">
+        <NavLink to="/artworks">
           Artworks
         </NavLink>
-        <NavLink to="/about" prefetch="intent">
+        <NavLink to="/about/en">
           About
         </NavLink>
-        <NavLink to="/shop" prefetch="intent">
+        <NavLink to="/shop">
           Shop
         </NavLink>
-        <NavLink to="/contact" prefetch="intent">
+        <NavLink to="/contact">
           Contact
         </NavLink>
       </nav>

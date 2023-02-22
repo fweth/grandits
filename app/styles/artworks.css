@@ -2,12 +2,14 @@ main {
   display: grid;
   grid-template-columns: 54rem 54rem;
   gap: 8rem 16rem;
-  margin: 16rem auto 6rem;
 }
 main a {
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+figcaption {
+  margin-top: 1rem;
 }
 .single {
   grid-column: span 1;
@@ -17,8 +19,17 @@ main a {
   grid-column: span 2;
   width: 97rem;
 }
-figcaption {
-  margin-top: 1rem;
+.wrapper {
+  position: relative;
+  height: 0;
+  background: #f8f8f8;
+}
+.wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
 }
 @media (max-width: 1200px) {
   main {

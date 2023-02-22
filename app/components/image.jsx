@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import io from "../utils/lazyLoad.client";
 const sizes = [60, 120, 240, 360, 720, 840, 1260, 1680];
-export default function Image({ className = "", data, width, height }) {
+export default function Image({ className, data, width, height }) {
   const imgRef = useRef();
   useEffect(function () {
     const img = imgRef.current;
@@ -11,6 +11,12 @@ export default function Image({ className = "", data, width, height }) {
       io.unobserve(img);
     };
   }, []);
+  useEffect(function(){
+    const img = imgRef.current;
+    return function(){
+      img.classList.remove("loaded");
+    }
+  }, [data.file.url])
   const url = (sz) =>
     data.file.url.replace(
       "media.graphassets.com",
@@ -21,11 +27,11 @@ export default function Image({ className = "", data, width, height }) {
       className={className}
       src={url(50)}
       srcSet={sizes.map((sz) => `${url(sz)} ${sz}w`).join(",")}
-      sizes="50px"
-      // alt={data.alt}
-      width={width || data.file.width}
-      height={height || data.file.height}
-      loading="lazy"
+      sizes="60px"
+      alt={data.alt}
+      width={data.file.width}
+      height={data.file.height}
+      // loading="lazy"
       onLoad={function (e) {
         e.target.classList.add("loaded");
       }}

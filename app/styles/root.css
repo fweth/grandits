@@ -13,8 +13,8 @@
   --lh-xl: 5.4rem;
   --fs-l: 4.5rem;
   --lh-l: 5.4rem;
-  --fs-m: 2rem;
-  --lh-m: 3rem;
+  --fs-m: 2.8rem;
+  --lh-m: 3.6rem;
   --fs-s: 1.8rem;
   --lh-s: 2.4rem;
   font-size: 8px;
@@ -101,18 +101,6 @@ em {
 }
 figcaption {
   white-space: pre-wrap;
-}
-.wrapper {
-  position: relative;
-  height: 0;
-  background: #eee;
-}
-.wrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  object-fit: cover;
 }
 .blocks {
   width: 96rem;

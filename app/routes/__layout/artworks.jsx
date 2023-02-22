@@ -47,23 +47,24 @@ export default function Artworks() {
   const { collection } = useLoaderData();
   return (
     <main>
-      {collection.thumbnails.filter((tn)=>tn.artwork).map((tn) => (
-        <Link
-          className={tn.doubleCol ? "double" : "single"}
-          to={`${tn.artwork.slug}/1`}
-          prefetch="intent"
-          key={tn.artwork.slug}
-        >
-          <figure>
-            <Image
-              data={tn.artwork.image}
-              width={tn.doubleCol ? 970 : 540}
-              height={tn.doubleCol ? 776 : 675}
-            />
-            <figcaption>{tn.artwork.image.caption}</figcaption>
-          </figure>
-        </Link>
-      ))}
+      {collection.thumbnails
+        .filter((tn) => tn.artwork)
+        .map((tn) => (
+          <Link
+            className={tn.doubleCol ? "double" : "single"}
+            to={`${tn.artwork.slug}/1`}
+            key={tn.artwork.slug}
+          >
+            <figure>
+              <Image
+                data={tn.artwork.image}
+                width={tn.doubleCol ? 970 : 540}
+                height={tn.doubleCol ? 776 : 675}
+              />
+              <figcaption>{tn.artwork.image.caption}</figcaption>
+            </figure>
+          </Link>
+        ))}
     </main>
   );
 }

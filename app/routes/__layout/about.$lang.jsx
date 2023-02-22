@@ -12,10 +12,10 @@ const Nav = ({ articles, navRef }) => (
       </a>
     ))}
     <div className="lang">
-      <NavLink to="../en" relative="path" prefetch="intent">
+      <NavLink to="../en" relative="path" preventScrollReset>
         EN
       </NavLink>
-      <NavLink to="../de" relative="path" prefetch="intent">
+      <NavLink to="../de" relative="path" preventScrollReset>
         DE
       </NavLink>
     </div>
