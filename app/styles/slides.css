@@ -66,8 +66,10 @@ main.visual * {
   transform: rotate(-45deg);
 }
 @media (max-width: 1000px) {
-  img {
+  main {
     width: calc(100% - 12rem);
+  }
+  img {
     margin: auto;
   }
   .icon-nav.bc {
