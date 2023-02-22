@@ -29,6 +29,7 @@ export const meta = () => ({
   charset: "utf-8",
   title: "Martin Grandits",
   viewport: "width=device-width, initial-scale=1",
+  generated: Date()
 });
 
 export default function App() {
