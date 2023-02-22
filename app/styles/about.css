@@ -19,6 +19,11 @@ nav.about {
 article {
   margin-bottom: 16rem;
 }
+@media(max-width: 1200px){
+  nav.about {
+    top: 13.5rem;
+  }
+}
 @media(max-width: 1000px){
   nav.about {
     position: fixed;

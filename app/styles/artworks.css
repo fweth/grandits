@@ -36,7 +36,6 @@ figcaption {
     display: grid;
     grid-template-columns: 48rem 48rem;
     gap: 8rem 8rem;
-    margin: 8rem auto 3rem;
   }
   .double {
     width: 84rem;

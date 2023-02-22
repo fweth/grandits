@@ -31,7 +31,7 @@ header nav {
   flex: 1;
   margin-right: 4.8rem;
   margin-left: 12.5rem;
-  font-family: 'SourceSerifPro';
+  font-family: "SourceSerifPro";
   font-size: var(--fs-xl);
 }
 nav a {
@@ -52,6 +52,9 @@ nav a.active {
   display: none;
 }
 @media (max-width: 1200px) {
+  main {
+    margin: 14rem auto 4rem;
+  }
   header nav {
     margin-right: 1.2rem;
     margin-left: 1.2rem;
