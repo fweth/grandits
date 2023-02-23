@@ -1,7 +1,7 @@
 import { json } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import { request, gql } from "graphql-request";
 
 import styles from "../styles/slides.css";
@@ -59,9 +59,9 @@ export default function Slides() {
   const prevRef = useRef();
   const closeRef = useRef();
   const { artwork, i, n } = useLoaderData();
-  useEffect(function(){
-    window.onkeydown=function(e){
-      switch(e.key) {
+  useEffect(function () {
+    window.onkeydown = function (e) {
+      switch (e.key) {
         case "ArrowLeft":
           prevRef.current.click();
           return;
@@ -71,14 +71,16 @@ export default function Slides() {
         case "Escape":
           closeRef.current.click();
       }
-    }
-    return function(){
+    };
+    return function () {
       window.onkeydown = null;
-    }
-  }, [])
+    };
+  }, []);
+  const prev = `../${((i + n - 2) % n) + 1}`;
+  const next = `../${(i % n) + 1}`
   return (
     <>
-      <Outlet/>
+      <Outlet context={{ next }} />
       <div className="caption">
         {artwork.slides[i - 1]?.caption || artwork.image.caption}
       </div>
@@ -86,7 +88,7 @@ export default function Slides() {
         <Link
           className="prev"
           aria-label="Previous"
-          to={`../${((i + n - 2) % n) + 1}`}
+          to={prev}
           relative="path"
           ref={prevRef}
         >
@@ -96,7 +98,7 @@ export default function Slides() {
         <Link
           className="next"
           aria-label="Next"
-          to={`../${(i % n) + 1}`}
+          to={next}
           relative="path"
           ref={nextRef}
         >

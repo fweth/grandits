@@ -1,5 +1,5 @@
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useOutletContext } from "@remix-run/react";
 import { request, gql } from "graphql-request";
 import Image from "../../components/image";
 import MixedContent from "../../components/mixedContent";
@@ -54,21 +54,22 @@ export async function loader({ params: { slug, index } }) {
 
 export default function Slide() {
   const { slide } = useLoaderData();
+  const {next} = useOutletContext();
   switch (slide.__typename) {
     case "Visual":
       switch (slide.file.mimeType.split("/")[0]) {
         case "image":
           const ls = slide.file.width > slide.file.height;
           return (
-            <main className="visual">
+            <Link className="visual" to={next} relative="path">
               <Image data={slide} />
-            </main>
+            </Link>
           );
         case "video":
           return (
-            <main className="visual">
+            <Link className="visual" to={next} relative="path">
               <video src={slide.file.url} controls playsInline />
-            </main>
+            </Link>
           );
       }
     case "MixedContent":
