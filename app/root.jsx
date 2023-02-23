@@ -29,7 +29,7 @@ export const meta = () => ({
   charset: "utf-8",
   title: "Martin Grandits",
   viewport: "width=device-width,initial-scale=1",
-  generator: "Remix v1.13.0"
+  generator: "Remix v1.13.0",
 });
 
 export default function App() {
@@ -41,7 +41,11 @@ export default function App() {
       </head>
       <body>
         <Outlet />
-        <ScrollRestoration getKey={(location) => location.pathname} />
+        <ScrollRestoration
+          getKey={(location) =>
+            location.pathname === "/artworks" ? location.pathname : location.key
+          }
+        />
         <Scripts />
         <LiveReload />
       </body>

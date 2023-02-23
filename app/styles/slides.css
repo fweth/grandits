@@ -22,11 +22,9 @@ a.visual * {
 }
 .caption {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 2rem;
+  left: 6rem;
   width: 40%;
-  padding-bottom: 2rem;
-  padding-left: 6rem;
   white-space: pre-wrap;
 }
 .icon-nav.bc {
@@ -64,7 +62,7 @@ a.visual * {
   top: 2.8rem;
   left: 1.2rem;
   width: 3.6rem;
-  height: 3px;
+  height: 0.375rem;
   background: blue;
 }
 .icon-nav.tr .t {
@@ -84,11 +82,12 @@ a.visual * {
     top: 0;
     bottom: auto;
   }
-  /* .icon-nav.tr {
-    right: 6rem;
-  } */
+  .icon-nav.tr {
+    right: 2.5rem;
+  }
   .caption {
     width: 100%;
+    left: 4rem;
   }
 }
 @media (max-width: 600px) {
@@ -99,8 +98,5 @@ a.visual * {
   .icon-nav.tr {
     top: 0.8rem;
     right: 2.5rem;
-  }
-  .caption {
-    padding: 0 4rem 1rem;
   }
 }
