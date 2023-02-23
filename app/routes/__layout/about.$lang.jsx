@@ -137,7 +137,6 @@ export default function Info() {
       <main className="blocks about" ref={mainRef}>
         {artclData.map((article) => (
           <article
-            className="blocks"
             data-id={article.title}
             key={article.title}
           >
