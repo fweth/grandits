@@ -16,7 +16,7 @@ export default function MixedContent({ data }) {
           <div className="visual-block" key={block.id}>
             {block.columns.map((col) => (
               <figure key={col.id}>
-                <Image data={col}/>
+                <Image data={col} />
                 <figcaption>{col.alt}</figcaption>
               </figure>
             ))}
