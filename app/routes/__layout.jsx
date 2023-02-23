@@ -21,22 +21,18 @@ function Header() {
       <Link to="/artworks">
         <img className="logo" src="/logo.svg" />
       </Link>
-      <nav className={active ? "active" : undefined}>
-        <NavLink to="/artworks">
-          Artworks
-        </NavLink>
-        <NavLink to="/about/en">
-          About
-        </NavLink>
-        <NavLink to="/shop">
-          Shop
-        </NavLink>
-        <NavLink to="/contact">
-          Contact
-        </NavLink>
+      <nav
+        className={active ? "active" : undefined}
+        aria-expanded={active}
+      >
+        <NavLink to="/artworks">Artworks</NavLink>
+        <NavLink to="/about/en">About</NavLink>
+        <NavLink to="/shop">Shop</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
       </nav>
       <button
         className={`show-nav${active ? " active" : ""}`}
+        aria-label="Toggle menu"
         onClick={function (e) {
           e.stopPropagation();
           setActive(!active);
@@ -56,6 +52,7 @@ export default function Layout() {
       <Header />
       <button
         className="icon-nav bl"
+        aria-label="Scroll to top"
         onClick={function () {
           window.scrollTo({
             top: 0,

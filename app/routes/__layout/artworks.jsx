@@ -53,6 +53,7 @@ export default function Artworks() {
         .map((tn) => (
           <Link
             className={tn.doubleCol ? "double" : "single"}
+            aria-label="View artwork"
             to={`${tn.artwork.slug}/1`}
             key={tn.artwork.slug}
           >

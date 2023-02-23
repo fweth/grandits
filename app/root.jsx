@@ -28,8 +28,8 @@ export const links = () => [
 export const meta = () => ({
   charset: "utf-8",
   title: "Martin Grandits",
-  viewport: "width=device-width, initial-scale=1",
-  generated: Date()
+  viewport: "width=device-width,initial-scale=1",
+  generator: "Remix v1.13.0"
 });
 
 export default function App() {

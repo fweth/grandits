@@ -85,6 +85,7 @@ export default function Slides() {
       <nav className="icon-nav bc">
         <Link
           className="prev"
+          aria-label="Previous"
           to={`../${((i + n - 2) % n) + 1}`}
           relative="path"
           ref={prevRef}
@@ -94,6 +95,7 @@ export default function Slides() {
         <div className="indicator">{`${i}/${n}`}</div>
         <Link
           className="next"
+          aria-label="Next"
           to={`../${(i % n) + 1}`}
           relative="path"
           ref={nextRef}
@@ -103,6 +105,7 @@ export default function Slides() {
       </nav>
       <Link
         className="icon-nav tr"
+        aria-label="Close"
         to="/artworks"
         ref={closeRef}
       >
