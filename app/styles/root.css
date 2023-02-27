@@ -68,6 +68,12 @@ ul {
   font-size: var(--fs-m);
   line-height: var(--lh-m);
 }
+p + h4 {
+  margin-top: calc(2 * var(--lh-m));
+}
+h4 + p {
+  margin-top: var(--lh-m);
+}
 p,
 ul {
   margin-top: 7.2rem;
