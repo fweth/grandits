@@ -10,7 +10,7 @@ import {
 import styles from "./styles/root.css";
 
 export const headers = () => ({
-  "Cache-Control": "public, max-age=300",
+  "Cache-Control": "max-age=300,public",
 });
 
 export const links = () => [

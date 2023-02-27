@@ -98,7 +98,6 @@ export default function Info() {
     for (let i = 0; i < n; i++) {
       hrefs[i].onclick = function (e) {
         e.preventDefault();
-        console.log("scroll to", artcls[i]);
         artcls[i].scrollIntoView({ behavior: "smooth", block: "center" });
       };
     }
@@ -113,7 +112,6 @@ export default function Info() {
           minArg = el.dataset.id;
         }
       }
-      console.log(minArg);
       for (let el of hrefs) {
         if (el.dataset.id === minArg) {
           el.classList.add("active");
