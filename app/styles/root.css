@@ -42,10 +42,6 @@ a,
 button {
   cursor: pointer;
 }
-a {
-  color: blue;
-  text-decoration: underline;;
-}
 img, svg, video {
   display: block;
   width: 100%;
@@ -117,6 +113,10 @@ figcaption {
 .blocks {
   width: 96rem;
   padding-right: 2rem;
+}
+.blocks a {
+  color: blue;
+  text-decoration: underline;
 }
 .visual-block,
 .text-block {
