@@ -36,7 +36,6 @@ export async function loader({ params: { slug, lang } }) {
       }
     }
   `;
-  console.log('query', query)
   return json(await request(process.env.CONTENT_API, query));
 }
 
