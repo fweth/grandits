@@ -23,7 +23,7 @@ function Header() {
       </Link>
       <nav className={active ? "active" : undefined} aria-expanded={active}>
         <NavLink to="/artworks">Artworks</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/i">About</NavLink>
         <NavLink to="/shop">Shop</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
@@ -49,7 +49,7 @@ export function ErrorBoundary({ error }) {
     <main className="blocks">
       <h3>Sorry, something went wrong!</h3>
       <p>
-        Go back te <Link to="/artworks">Home...</Link>
+        Go back to <Link to="/artworks">Home...</Link>
       </p>
     </main>
   );
