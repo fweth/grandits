@@ -36,15 +36,15 @@ export async function loader({ params: { slug, lang } }) {
       }
     }
   `;
+  console.log('query', query)
   return json(await request(process.env.CONTENT_API, query));
 }
 
 export default function SlugLang() {
   const { page } = useLoaderData();
-  console.log(page)
   return (
     <main className="blocks about">
-      {/* <MixedContent data={page.content} /> */}
+      <MixedContent data={page.content} />
     </main>
   );
 }

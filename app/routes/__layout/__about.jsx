@@ -41,7 +41,6 @@ export async function loader({ params: { slug, lang } }) {
 
 export default function About() {
   const { lang, pages } = useLoaderData();
-  console.log(lang);
   return (
     <>
       <Outlet />
@@ -53,8 +52,7 @@ export default function About() {
               {capitalize(page.slug)}
             </NavLink>
           ))}
-        {lang && (
-          <div className="lang">
+          <div className="lang" style={{visibility: lang ? "visible" : "hidden"}}>
             <NavLink to="../en" relative="path">
               EN
             </NavLink>
@@ -62,7 +60,6 @@ export default function About() {
               DE
             </NavLink>
           </div>
-        )}
       </nav>
     </>
   );

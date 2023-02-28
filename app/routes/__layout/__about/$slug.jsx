@@ -39,12 +39,7 @@ export async function loader({ params: { slug } }) {
   return json(await request(process.env.CONTENT_API, query));
 }
 
-export function ErrorBoundary({ error }) {
-  console.error(error);
-  return <p>Sorry, something went wrong!</p>;
-}
-
-export default function SlugLang() {
+export default function Slug() {
   const { page } = useLoaderData();
   return (
     <main className="blocks about">
