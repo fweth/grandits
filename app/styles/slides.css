@@ -2,6 +2,7 @@ body {
   display: grid;
   grid-template-rows: 10.8rem minmax(0, 1fr) 19.6rem;
   height: 100vh;
+  height: 100svh;
 }
 main {
   grid-row: 2;
@@ -58,13 +59,6 @@ a.visual * {
   width: 6rem;
   height: 6rem;
   padding: 0;
-}
-.icon-nav.tr div {
-  /* position: absolute;
-  top: 2.8rem;
-  left: 1.2rem;
-  width: 3.6rem;
-  height: 0.375rem; */
 }
 .icon-nav.tr .t {
   transform: rotate(45deg);

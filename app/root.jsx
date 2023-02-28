@@ -30,7 +30,6 @@ export const meta = () => ({
   title: "Martin Grandits",
   viewport: "width=device-width,initial-scale=1",
   generator: "Remix v1.13.0",
-  "apple-mobile-web-app-capable": "yes",
 });
 
 export default function App() {
