@@ -54,11 +54,9 @@ export default function Contact() {
       <main className="blocks about">
         <MixedContent data={page.content} />
       </main>
-      <footer>
-        <nav>
+        <nav className="footer">
           <Link to="/impressum">Impressum</Link>
         </nav>
-      </footer>
     </>
   );
 }

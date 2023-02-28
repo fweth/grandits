@@ -11,10 +11,10 @@ main {
   width: 124rem;
   margin: 22rem auto 6rem;
 }
-footer {
+.footer {
   position: absolute;
   bottom: 4.5rem;
-  left: 13rem;
+  left: 4.8rem;
   /* text-align: center; */
 }
 header img {
@@ -79,7 +79,7 @@ nav a.active {
   header nav.active {
     transform: translateY(0);
   }
-  footer {
+  .footer {
     left: 6rem;
   }
   .show-nav {
@@ -119,7 +119,7 @@ nav a.active {
     width: 35rem;
     background: black;
   }
-  footer {
+  .footer {
     left: 4rem;
   }
   .show-nav {

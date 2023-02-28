@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from "@remix-run/react";
+import { Link, NavLink, Outlet, useLocation } from "@remix-run/react";
 import { useState } from "react";
 
 import styles from "../styles/layout.css";
@@ -56,23 +56,26 @@ export function ErrorBoundary({ error }) {
 }
 
 export default function Layout() {
+  const { pathname } = useLocation();
   return (
     <>
       <Header />
-      <button
-        className="icon-nav bl"
-        aria-label="Scroll to top"
-        onClick={function () {
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-          });
-        }}
-      >
-        &uarr;
-      </button>
       <Outlet />
+      {pathname !== "/contact" && (
+        <button
+          className="icon-nav bl"
+          aria-label="Scroll to top"
+          onClick={function () {
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
+          &uarr;
+        </button>
+      )}
     </>
   );
 }
