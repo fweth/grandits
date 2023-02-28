@@ -32,7 +32,7 @@ export async function loader({ params: { slug, lang } }) {
       }
     }
   `;
-  const {page, pages} = await request(process.env.CONTENT_API, query);
+  const { page, pages } = await request(process.env.CONTENT_API, query);
   if (!lang && page.contentDE.length > 0) {
     return redirect(`/${slug}/en`);
   }
@@ -41,13 +41,13 @@ export async function loader({ params: { slug, lang } }) {
 
 export default function About() {
   const { lang, pages } = useLoaderData();
-  console.log(lang)
+  console.log(lang);
   return (
     <>
       <Outlet />
       <nav className="about">
         {pages
-          .filter((page) => page.slug != "contact")
+          .filter((page) => !["contact", "impressum"].includes(page.slug))
           .map((page) => (
             <NavLink to={`../${page.slug}`} key={page.slug}>
               {capitalize(page.slug)}
