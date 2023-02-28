@@ -5,7 +5,7 @@ import MixedContent from "../../../components/mixedContent";
 
 export const meta = ({ data: { page } }) => page?.meta;
 
-export async function loader({ params: { slug, lang = "en" } }) {
+export async function loader({ params: { slug, lang } }) {
   const query = gql`
     {
       page(where: { slug: "${slug}" }) {
@@ -36,19 +36,15 @@ export async function loader({ params: { slug, lang = "en" } }) {
       }
     }
   `;
-  return json(...request(process.env.CONTENT_API, query));
-}
-
-export function ErrorBoundary({ error }) {
-  console.error(error);
-  return <p>Sorry, something went wrong!</p>;
+  return json(await request(process.env.CONTENT_API, query));
 }
 
 export default function SlugLang() {
   const { page } = useLoaderData();
+  console.log(page)
   return (
     <main className="blocks about">
-      <MixedContent data={page.content} />
+      {/* <MixedContent data={page.content} /> */}
     </main>
   );
 }
