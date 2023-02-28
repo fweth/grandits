@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { request, gql } from "graphql-request";
 import MixedContent from "../../../components/mixedContent";
@@ -35,7 +36,7 @@ export async function loader({ params: { slug, lang = "en" } }) {
       }
     }
   `;
-  return request(process.env.CONTENT_API, query);
+  return json(...request(process.env.CONTENT_API, query));
 }
 
 export function ErrorBoundary({ error }) {
