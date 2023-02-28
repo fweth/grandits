@@ -1,8 +1,3 @@
-/* body {
-  display: grid;
-  grid-template-rows: auto 1fr 6rem;
-  min-height: 100vh;
-} */
 header {
   position: fixed;
   top: 0;
@@ -15,11 +10,12 @@ header {
 main {
   width: 124rem;
   margin: 22rem auto 6rem;
-  min-height: 100vw;
 }
 footer {
-  height: 6rem;
-  text-align: center;
+  position: absolute;
+  bottom: 4.5rem;
+  left: 13rem;
+  /* text-align: center; */
 }
 header img {
   height: 100%;
@@ -83,6 +79,9 @@ nav a.active {
   header nav.active {
     transform: translateY(0);
   }
+  footer {
+    left: 6rem;
+  }
   .show-nav {
     position: relative;
     display: block;
@@ -91,11 +90,6 @@ nav a.active {
     margin-right: 4.5rem;
   }
   .show-nav div {
-    /* position: absolute;
-    top: 2.8rem;
-    left: 1.5rem;
-    width: 3rem;
-    height: 0.375rem; */
     transition: transform 400ms, opacity 400ms;
   }
   .show-nav .t {
@@ -124,6 +118,9 @@ nav a.active {
   header img {
     width: 35rem;
     background: black;
+  }
+  footer {
+    left: 4rem;
   }
   .show-nav {
     margin-right: 2.5rem;

@@ -19,10 +19,7 @@ export const links = () => [
 
 export const shouldRevalidate = () => true;
 
-export async function loader({ params: { slug, lang } }) {
-  if (!slug) {
-    return redirect(`/i/info/en`, 301);
-  }
+export async function loader({ params: { slug = "info", lang } }) {
   const query = gql`
     {
       page(where: { slug: "${slug}" }) {
@@ -37,7 +34,7 @@ export async function loader({ params: { slug, lang } }) {
   `;
   const { page, pages } = await request(process.env.CONTENT_API, query);
   if (!lang && page.contentDE.length > 0) {
-    return redirect(`/i/${slug}/en`, 301);
+    return redirect(`/about/${slug}/en`, 301);
   }
   return json({ lang, pages });
 }

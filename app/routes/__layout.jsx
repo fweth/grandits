@@ -23,7 +23,7 @@ function Header() {
       </Link>
       <nav className={active ? "active" : undefined} aria-expanded={active}>
         <NavLink to="/artworks">Artworks</NavLink>
-        <NavLink to="/i">About</NavLink>
+        <NavLink to="/about">About</NavLink>
         <NavLink to="/shop">Shop</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
@@ -73,11 +73,6 @@ export default function Layout() {
         &uarr;
       </button>
       <Outlet />
-      <footer>
-        <nav>
-          <Link to="/impressum">Impressum</Link>
-        </nav>
-      </footer>
     </>
   );
 }
