@@ -22,9 +22,11 @@ a.visual * {
 }
 .caption {
   position: fixed;
-  bottom: 2rem;
-  left: 6rem;
+  bottom: 0;
+  left: 0;
   width: 40%;
+  padding-bottom: 2rem;
+  padding-left: 6rem;
   white-space: pre-wrap;
 }
 .icon-nav.bc {
@@ -87,7 +89,8 @@ a.visual * {
   }
   .caption {
     width: 100%;
-    left: 4rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 }
 @media (max-width: 600px) {
