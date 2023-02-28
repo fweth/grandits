@@ -64,6 +64,7 @@ p:first-child {
 }
 p,
 h4,
+h5,
 ul {
   font-size: var(--fs-m);
   line-height: var(--lh-m);
@@ -71,18 +72,18 @@ ul {
 p + h4 {
   margin-top: calc(2 * var(--lh-m));
 }
-h4 + p {
+p, h5, li {
   margin-top: var(--lh-m);
 }
-p {
+/* p {
   margin-top: calc(2 * var(--lh-m));
-}
-li {
-  margin-top: var(--lh-m);
-}
+} */
 p + p {
   margin-top: 0;
   text-indent: 5.4rem;
+}
+h5 + p {
+  margin-top: 0;
 }
 blockquote {
   margin-top: 7.2rem;

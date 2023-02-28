@@ -1,27 +1,18 @@
-import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { request, gql } from "graphql-request";
-import MixedContent from "../../components/mixedContent";
-import styles from "../../styles/about.css";
+import MixedContent from "../../../components/mixedContent";
 
 export const meta = ({ data: { page } }) => page?.meta;
 
-export const links = () => [
-  {
-    rel: "stylesheet",
-    href: styles,
-  },
-];
-
-export async function loader() {
+export async function loader({ params: { slug, lang = "en" } }) {
   const query = gql`
     {
-      page(where: { slug: "contact" }) {
+      page(where: { slug: "${slug}" }) {
         meta {
           description
           title
         }
-        content: contentEN {
+        content: content${lang.toUpperCase()} {
           ... on TextBlock {
             __typename
             id
@@ -44,10 +35,15 @@ export async function loader() {
       }
     }
   `;
-  return json(await request(process.env.CONTENT_API, query));
+  return request(process.env.CONTENT_API, query);
 }
 
-export default function Contact() {
+export function ErrorBoundary({ error }) {
+  console.error(error);
+  return <p>Sorry, something went wrong!</p>;
+}
+
+export default function SlugLang() {
   const { page } = useLoaderData();
   return (
     <main className="blocks about">

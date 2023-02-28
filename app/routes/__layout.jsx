@@ -26,7 +26,7 @@ function Header() {
         aria-expanded={active}
       >
         <NavLink to="/artworks">Artworks</NavLink>
-        <NavLink to="/about/en">About</NavLink>
+        <NavLink to="/about">About</NavLink>
         <NavLink to="/shop">Shop</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
@@ -44,6 +44,11 @@ function Header() {
       </button>
     </header>
   );
+}
+
+export function ErrorBoundary({ error }) {
+  console.error(error);
+  return <p>Sorry, something went wrong!</p>;
 }
 
 export default function Layout() {
