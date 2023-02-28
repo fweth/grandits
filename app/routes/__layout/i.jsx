@@ -20,8 +20,8 @@ export const links = () => [
 export const shouldRevalidate = () => true;
 
 export async function loader({ params: { slug, lang } }) {
-  if(!slug) {
-    return redirect(`/i/about/en`);
+  if (!slug) {
+    return redirect(`/i/info/en`, 301);
   }
   const query = gql`
     {
@@ -37,7 +37,7 @@ export async function loader({ params: { slug, lang } }) {
   `;
   const { page, pages } = await request(process.env.CONTENT_API, query);
   if (!lang && page.contentDE.length > 0) {
-    return redirect(`/i/${slug}/en`);
+    return redirect(`/i/${slug}/en`, 301);
   }
   return json({ lang, pages });
 }
@@ -55,14 +55,17 @@ export default function About() {
               {capitalize(page.slug)}
             </NavLink>
           ))}
-          <div className="lang" style={{visibility: lang ? "visible" : "hidden"}}>
-            <NavLink to="../en" relative="path">
-              EN
-            </NavLink>
-            <NavLink to="../de" relative="path">
-              DE
-            </NavLink>
-          </div>
+        <div
+          className="lang"
+          style={{ visibility: lang ? "visible" : "hidden" }}
+        >
+          <NavLink to="../en" relative="path">
+            EN
+          </NavLink>
+          <NavLink to="../de" relative="path">
+            DE
+          </NavLink>
+        </div>
       </nav>
     </>
   );
