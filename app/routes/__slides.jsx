@@ -49,11 +49,6 @@ export async function loader({ params: { slug, index } }) {
   return json({ artwork, i, n });
 }
 
-export function ErrorBoundary({ error }) {
-  console.error(error);
-  return <p>Sorry, something went wrong!</p>;
-}
-
 export default function Slides() {
   const nextRef = useRef();
   const prevRef = useRef();

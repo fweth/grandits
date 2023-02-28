@@ -21,10 +21,7 @@ function Header() {
       <Link to="/artworks">
         <img className="logo" src="/logo.svg" />
       </Link>
-      <nav
-        className={active ? "active" : undefined}
-        aria-expanded={active}
-      >
+      <nav className={active ? "active" : undefined} aria-expanded={active}>
         <NavLink to="/artworks">Artworks</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/shop">Shop</NavLink>
@@ -48,7 +45,14 @@ function Header() {
 
 export function ErrorBoundary({ error }) {
   console.error(error);
-  return <p>Sorry, something went wrong!</p>;
+  return (
+    <main className="blocks">
+      <h3>Sorry, something went wrong!</h3>
+      <p>
+        Go back te <Link to="/artworks">Home...</Link>
+      </p>
+    </main>
+  );
 }
 
 export default function Layout() {
@@ -69,7 +73,11 @@ export default function Layout() {
         &uarr;
       </button>
       <Outlet />
-      <footer />
+      <footer>
+        <nav>
+          <Link to="/impressum">Impressum</Link>
+        </nav>
+      </footer>
     </>
   );
 }

@@ -19,6 +19,7 @@ main {
 }
 footer {
   height: 6rem;
+  text-align: center;
 }
 header img {
   height: 100%;
@@ -36,8 +37,8 @@ header nav {
 }
 nav a {
   display: block;
-  color: blue;
-  text-decoration: underline;
+  /* color: blue;
+  text-decoration: underline; */
   text-decoration-thickness: 0.25rem;
 }
 nav a.active {
