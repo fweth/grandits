@@ -79,7 +79,7 @@ export default function Slides() {
       <div className="caption">
         {artwork.slides[i - 1]?.caption || artwork.image.caption}
       </div>
-      <nav className="icon-nav bc">
+      <div className="icon-nav bc">
         <Link
           className="prev"
           aria-label="Previous"
@@ -99,7 +99,7 @@ export default function Slides() {
         >
           &rarr;
         </Link>
-      </nav>
+      </div>
       <Link
         className="icon-nav tr"
         aria-label="Close"
