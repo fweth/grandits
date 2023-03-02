@@ -56,6 +56,14 @@ img.loading {
 img.loaded {
   opacity: 1;
 }
+.t, .c, .b {
+  position: absolute;
+  top: 2.8rem;
+  left: 1.2rem;
+  width: 3.6rem;
+  height: 0.375rem;
+  background: blue;
+}
 h3 {
   font-size: var(--fs-l);
   line-height: var(--lh-l);
@@ -122,14 +130,6 @@ figcaption {
   color: blue;
   text-decoration: underline;
 }
-.t, .c, .b {
-  position: absolute;
-  top: 2.8rem;
-  left: 1.2rem;
-  width: 3.6rem;
-  height: 0.375rem;
-  background: blue;
-}
 .visual-block,
 .text-block {
   margin-bottom: 5.4rem;
@@ -140,7 +140,15 @@ figcaption {
   gap: 4.8rem;
 }
 .visual-block figure {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   width: min-content;
+}
+.caption-aside figure {
+  flex-direction: row;
+  align-items: center;
+  width: auto;
 }
 .visual-block figcaption {
   margin-top: 1.2rem;

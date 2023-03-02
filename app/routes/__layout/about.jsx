@@ -34,7 +34,7 @@ export async function loader({ params: { slug = "info", lang } }) {
   `;
   const { page, pages } = await request(process.env.CONTENT_API, query);
   if (!lang && page.contentDE.length > 0) {
-    return redirect(`/about/${slug}/en`, 301);
+    return redirect(`/about/${slug}/en`);
   }
   return json({ lang, pages });
 }

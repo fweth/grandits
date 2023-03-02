@@ -23,6 +23,7 @@ export async function loader({ params: { slug, lang } }) {
           }
           ... on VisualBlock {
             __typename
+            captionAside
             columns {
               caption
               file {

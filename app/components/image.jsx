@@ -28,7 +28,7 @@ export default function Image({ className, data, width, height }) {
       src={url(50)}
       srcSet={sizes.map((sz) => `${url(sz)} ${sz}w`).join(",")}
       sizes="60px"
-      alt={data.alt}
+      // alt={data.alt}
       width={data.file.width}
       height={data.file.height}
       // loading="lazy"

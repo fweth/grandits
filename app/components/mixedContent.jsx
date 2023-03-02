@@ -13,11 +13,13 @@ export default function MixedContent({ data }) {
         );
       case "VisualBlock":
         return (
-          <div className="visual-block" key={block.id}>
+          <div className={`visual-block ${block.captionAside ? " caption-aside" : ""}`} key={block.id}>
             {block.columns.map((col) => (
-              <figure key={col.id}>
+              <figure
+                key={col.id}
+              >
                 <Image data={col} />
-                <figcaption>{col.alt}</figcaption>
+                <figcaption>{col.caption}</figcaption>
               </figure>
             ))}
           </div>

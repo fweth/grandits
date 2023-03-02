@@ -31,6 +31,7 @@ export async function loader() {
           }
           ... on VisualBlock {
             __typename
+            captionAside
             columns {
               caption
               file {
