@@ -24,7 +24,7 @@ function Header() {
       <nav className={active ? "active" : undefined} aria-expanded={active}>
         <NavLink to="/artworks">Artworks</NavLink>
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/shop">Shop</NavLink>
+        <a href="https://martin-grandits.myshopify.com/collections/shopping">Shop</a>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
       <button
